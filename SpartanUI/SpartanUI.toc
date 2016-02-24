@@ -1,0 +1,47 @@
+## Interface: 11200
+## Title: SpartanUI |cFFFF0000 ALPHA|r
+## Version: v0.9
+## Author: Dyaxler
+## X-Email: dyaxler@hotmail.com
+## X-Date: Feburary 20, 2016
+## Notes: SpartanUI by Ansu backported for WoW (1.12.1)
+## SavedVariables: suiData, SUI_Lang, Adapt_Settings, FEDB
+## SavedVariablesPerCharacter: SUI_mobLast, SUI_mobXP, SUI_Titan
+## OptionalDeps:MobInfo2
+
+# Ace libraries
+Libs\AceLibrary\AceLibrary.lua
+Libs\AceOO-2.0\AceOO-2.0.lua
+Libs\AceEvent-2.0\AceEvent-2.0.lua
+Libs\AceAddon-2.0\AceAddon-2.0.lua
+Libs\AceDB-2.0\AceDB-2.0.lua
+Libs\AceHook-2.1\AceHook-2.1.lua
+Libs\AceConsole-2.0\AceConsole-2.0.lua
+Libs\AceLocale-2.2\AceLocale-2.2.lua
+Libs\Compost-2.0\Compost-2.0.lua
+Libs\AceModuleCore-2.0\AceModuleCore-2.0.lua
+
+# Adapt
+Modules\Adapt\Adapt.lua
+Modules\Adapt\Adapt.xml
+
+# Bartender2
+Modules\Bartender2\Bartender2-Locale-enUS.lua
+Modules\Bartender2\Bartender2-Locale-zhCN.lua
+Modules\Bartender2\Bartender2-Locale-deDE.lua
+Modules\Bartender2\Bartender2-Locale-koKR.lua
+Modules\Bartender2\Bartender2-Locale-zhTW.lua
+Modules\Bartender2\Defaults.lua
+Modules\Bartender2\Alias.lua
+Modules\Bartender2\Tables.lua
+Modules\Bartender2\StickyFrames.lua
+Modules\Bartender2\Bartender2.lua
+Modules\Bartender2\Options.lua
+
+# SpartanUI
+Modules\ClearFont\ClearFont.lua
+Modules\Flare\FilmEffects.lua
+Localization.lua
+SpartanUI.lua
+Font.xml
+SpartanUI.xml

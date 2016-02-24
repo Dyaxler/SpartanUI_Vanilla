@@ -1,0 +1,5857 @@
+<Ui>
+	<Frame name="SpartanUI" frameStrata="BACKGROUND" hidden="false" parent="UIParent" toplevel="false">
+	<Anchors>
+		<Anchor point="BOTTOMRIGHT" relativeTo="UIParent" relativePoint="BOTTOMRIGHT" />
+		<Anchor point="BOTTOMLEFT" relativeTo="UIParent" relativePoint="BOTTOMLEFT" />
+		<Anchor point="TOPRIGHT" relativeTo="UIParent" relativePoint="TOPRIGHT" />
+		<Anchor point="TOPLEFT" relativeTo="UIParent" relativePoint="TOPLEFT" />
+	</Anchors>
+	<Frames>
+
+--[[  frameStrata Parameters:  PARENT, BACKGROUND, LOW, MEDIUM, HIGH, DIALOG, FULLSCREEN, FULLSCREEN_DIALOG, TOOLTIP  ]]--
+--[[  Layer level Parameters:  BACKGROUND, BORDER, ARTWORK, OVERLAY, HIGHLIGHT										 ]]--
+
+--[  HUD  ]--
+		<Frame name="SUI_HUD" frameStrata="BACKGROUND" toplevel="false" parent="SpartanUI">
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SpartanUI" relativePoint="BOTTOM" />
+			</Anchors>
+			<Size>
+				<AbsDimension x="2560" y="153" />
+			</Size>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="HUD_1" file="Interface\AddOns\SpartanUI\Textures\HUD_1">
+						<Size>
+							<AbsDimension x="512" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-768" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="HUD_2" file="Interface\AddOns\SpartanUI\Textures\HUD_2">
+						<Size>
+							<AbsDimension x="512" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-256" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="HUD_3" file="Interface\AddOns\SpartanUI\Textures\HUD_3">
+						<Size>
+							<AbsDimension x="512" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="HUD_4" file="Interface\AddOns\SpartanUI\Textures\HUD_4">
+						<Size>
+							<AbsDimension x="512" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="256" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="HUD_5" file="Interface\AddOns\SpartanUI\Textures\HUD_5">
+						<Size>
+							<AbsDimension x="512" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="768" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+
+--[  Objects  ]--
+		<Frame name="SUI_Objects" frameStrata="BACKGROUND" parent="SpartanUI">
+			<Size>
+				<AbsDimension x="2560" y="512"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_XPBar_Base">
+						<Size>
+							<AbsDimension x="435" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-80" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="0" g="0" b="0" a="0.8"/>
+					</Texture>
+					<Texture name="SUI_RepBar_Base">
+						<Size>
+							<AbsDimension x="435" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="80" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="0" g="0" b="0" a="0.8"/>
+					</Texture>
+				</Layer>
+				<Layer level="BORDER">
+					<Texture name="SUI_XPBarRestedLow" file="Interface\AddOns\SpartanUI\Textures\Object_XP_RestedLow">
+						<Size>
+							<AbsDimension x="400" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-91" y="8" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_XPBarRestedHigh" file="Interface\AddOns\SpartanUI\Textures\Object_XP_RestedHigh">
+						<Size>
+							<AbsDimension x="400" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-91" y="8" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_RepBarLow" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowText">
+						<Size>
+							<AbsDimension x="402" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="91" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_RepBarLow2" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowText" alphaMode="ADD">
+						<Size>
+							<AbsDimension x="402" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="91" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_RepBar_LeadLow" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowLead">
+						<Size>
+							<AbsDimension x="32" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativeTo="SUI_RepBarLow" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+					<Texture name="SUI_RepBar_LeadLow2" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowLead" alphaMode="ADD">
+						<Size>
+							<AbsDimension x="32" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativeTo="SUI_RepBarLow" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_MapOverlay" file="Interface\AddOns\SpartanUI\Textures\Object_Minimap_Overlay" toplevel="true">
+						<Size>
+							<AbsDimension x="256" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_RepBar" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowText" alphaMode="ADD">
+						<Size>
+							<AbsDimension x="402" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="91" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_RepBar_Lead" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowLead" alphaMode="ADD">
+						<Size>
+							<AbsDimension x="32" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativeTo="SUI_RepBar" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+					<Texture name="SUI_XPBar" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowText" alphaMode="DISABLE">
+						<Size>
+							<AbsDimension x="402" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-91" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_XP_Lead" file="Interface\AddOns\SpartanUI\Textures\Object_XP_GlowLead">
+						<Size>
+							<AbsDimension x="32" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativeTo="SUI_XPBar" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<FontString name="SUI_MinimapCoords" inherits="GameFontNormalSmall">
+						<Anchors>
+							<Anchor point="TOP" relativeTo="MinimapZoneTextButton" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="0" y="-3"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TestString" inherits="SUI_Multilingual">
+						<Anchors>
+							<Anchor point="CENTER">
+								<Offset>
+									<AbsDimension x="-100" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TestString2" inherits="SUI_Multilingual">
+						<Anchors>
+							<Anchor point="CENTER">
+								<Offset>
+									<AbsDimension x="100" y="250"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Frame name="SUI_UpperObjects" parent="SUI_Objects" frameStrata="BACKGROUND">
+			<Size>
+				<AbsDimension x="1280" y="200"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_XPBar_Mask" file="Interface\AddOns\SpartanUI\Textures\Object_XP_Plate">
+						<Size>
+							<AbsDimension x="512" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-80" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_RepBar_Mask" file="Interface\AddOns\SpartanUI\Textures\Object_Rep_Plate">
+						<Size>
+							<AbsDimension x="512" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="80" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_BarPoppupLeft_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_Pop-UpLeft">
+						<Size>
+							<AbsDimension x="512" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-99" y="107" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.208984375" right="1" top="0" bottom="1" />
+					</Texture>
+					<Texture name="SUI_BarPoppupRight_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_Pop-UpRight">
+						<Size>
+							<AbsDimension x="512" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="100" y="107" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_XP_Increase" file="Interface\AddOns\SpartanUI\Textures\Object_XP_Flare">		--| a.k.a. the flasher |--
+						<Size>
+							<AbsDimension x="32" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativeTo="SUI_XPBar" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="8" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Bar1_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_1Row">
+						<Size>
+							<AbsDimension x="512" y="64" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Bar2_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_1Row">
+						<Size>
+							<AbsDimension x="512" y="64" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Bar3_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_1Row">
+						<Size>
+							<AbsDimension x="512" y="64" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Bar4_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_1Row">
+						<Size>
+							<AbsDimension x="512" y="64" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Bar5_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_3Row">
+						<Size>
+							<AbsDimension x="256" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Bar6_BG" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_3Row">
+						<Size>
+							<AbsDimension x="460" y="180" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="395" y="-16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_BarPoppupLeft_BG, 0, 1, 1, 0.208984375, true, true);
+					Sui_Crop(SUI_BarPoppupRight_BG, 0, 0.791015625, 1, 0, true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+		<Frame name="SUI_PopLeft_Hit" frameStrata="MEDIUM" toplevel="false" parent="SpartanUI" hidden="true">
+			<Size>
+				<AbsDimension x="400" y="43"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMRIGHT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="-99" y="107"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_BarPoppupLeft_Top" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_Pop-DownLeft" hidden="true">
+						<Size>
+							<AbsDimension x="512" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_BarPoppupLeft_Top, 0, 1, 1, 0.208984375, true, true);
+				</OnLoad>
+				<OnEnter>
+				</OnEnter>
+				<OnLeave>
+				</OnLeave>
+			</Scripts>
+		</Frame>
+		<Frame name="SUI_PopRight_Hit" frameStrata="MEDIUM" toplevel="false" parent="SpartanUI" hidden="true">
+			<Size>
+				<AbsDimension x="400" y="43"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="100" y="107"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_BarPoppupRight_Top" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_Pop-DownRight" hidden="true">
+						<Size>
+							<AbsDimension x="512" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_BarPoppupRight_Top, 0, 0.791015625, 1, 0, true);
+				</OnLoad>
+				<OnEnter>
+				</OnEnter>
+				<OnLeave>
+				</OnLeave>
+			</Scripts>
+		</Frame>
+
+--[ Member Frames ]--
+
+	-- Self Frame --
+		<Frame name="SUI_Self" parent="SpartanUI" frameStrata="LOW">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Self_Backdrop" file="Interface\AddOns\SpartanUI\Textures\Unit_Self_Backdrop">
+						<Size>
+							<AbsDimension x="64" y="64" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-132" y="191" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Self_BuffBG" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_BuffTop" hidden="true">
+						<Size>
+							<AbsDimension x="256" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-195" y="235" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Button name="SUI_Self_Button" frameStrata="BACKGROUND" toplevel="true" movable="true" parent="SpartanUI">
+			<Size>
+				<AbsDimension x="260" y="80"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMRIGHT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="-95" y="150"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_Self_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="260" y="80"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_Self_HitRect">
+								<Size>
+									<AbsDimension x="260" y="80"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_SelfFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "player");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnClick>
+					Sui_SelfFrame_OnClick();
+				</OnClick>
+				<OnReceiveDrag>
+					Sui_Self_OnReceiveDrag();
+				</OnReceiveDrag>
+			</Scripts>
+		</Button>
+		--------
+		<Frame name="SUI_SelfFrame" parent="SUI_Self" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Self_Portrait">
+						<Size>
+							<AbsDimension x="63" y="63" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-133" y="191" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="BORDER">
+					<Texture name="SUI_Self_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_PlateRight">
+						<Size>
+							<AbsDimension x="512" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="45" y="125" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_Self_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="184" y="190" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_Self_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Self_CastBar_Anchor" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Self_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="256" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Self_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-314" y="172" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Self_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="2" y="2" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_HealthBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Self_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-314" y="155" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Self_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="2" y="2" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Self_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="2" y="2" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Self_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="2" y="2" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Self_FocusBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="2" y="2" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Self_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Self_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Self_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Self_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Self_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_Ring">
+						<Size>
+							<AbsDimension x="256" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-60" y="124" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Frame name="SUI_SelfFrame_Info" parent="SUI_SelfFrame" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Self_ClassIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_ClassSmall" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-30" y="24" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="1" a="0.5"/>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Self_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="10" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Self_Overlap" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_PlateRight">
+						<Size>
+							<AbsDimension x="512" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_Plate" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0.70703125" top="0" bottom="1" />
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_Self_Name" inherits="SUI_FontTitle" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="166" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-47" y="18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_Level" inherits="SUI_FontLevel" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="50" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_CastText" inherits="SUI_FontCognosisDim" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-45" y="2"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-173" y="2"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-184" y="2"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_HealthCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-45" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_HealthDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-173" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_HealthPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-184" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_ManaCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-45" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-173" y="-33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Self_ManaPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-184" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Self Icons --
+					<Texture name="SUI_Self_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Self_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="22" y="33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Self_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Self_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Self_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="false">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Self_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-61" y="-45"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_Self_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="false">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_Self_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_Self_PVPIcon" hidden="true">
+						<Size>
+							<AbsDimension x="54" y="50"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Self_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="68" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					SUI_Self_Overlap:SetTexCoordModifiesRect(true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+
+	-- Pet Frame --
+		<Frame name="SUI_Pet" parent="SpartanUI" frameStrata="LOW" hidden="true">
+			<Size>
+				<AbsDimension x="256" y="64"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMRIGHT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="-17" y="215"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Pet_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_PetFocus_Plate">
+						<Size>
+							<AbsDimension x="256" y="64" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Button name="SUI_Pet_Button" frameStrata="BACKGROUND" toplevel="true" movable="true" parent="SUI_Pet">
+			<Size>
+				<AbsDimension x="256" y="64"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SUI_Pet" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="-6" y="12"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_Pet_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="256" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_Pet_HitRect">
+								<Size>
+									<AbsDimension x="256" y="64"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_PetFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "pet");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnClick>
+					Sui_PetFrame_OnClick();
+				</OnClick>
+			</Scripts>
+		</Button>
+		<Frame name="SUI_PetFrame" parent="SUI_Pet" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="256" y="64"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Pet" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Pet_Portrait">
+						<Size>
+							<AbsDimension x="43" y="43" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Pet" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="91" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="BORDER">
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_Pet_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="159" y="190" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_Pet_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Pet_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="256" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Pet_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-68" y="30" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Pet_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_HealthBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Pet_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-68" y="15" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Pet_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Pet_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Pet_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Pet_FocusBar" file="Interface\AddOns\SpartanUI\Animations\FocusBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Pet_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Pet_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Pet_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Pet_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Pet_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_PetFocus_Portrait">
+						<Size>
+							<AbsDimension x="128" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="3" y="-3" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Frame name="SUI_Pet_Happiness" parent="SUI_Pet" enableMouse="true" toplevel="true" hidden="false" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT">
+					<Offset>
+						<AbsDimension x="-5" y="5"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Pet_HappinessIcon" file="Interface\PetPaperDollFrame\UI-PetHappiness" hidden="false">
+						<Size>
+							<AbsDimension x="24" y="24" />
+						</Size>
+						<TexCoords left="0" right="0.1875" top="0" bottom="0.359375"/>
+					</Texture>		
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnEnter>
+					if ( this.tooltip ) then
+						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetText(this.tooltip);
+						if ( this.tooltipDamage ) then
+							GameTooltip:AddLine(this.tooltipDamage, "", 1, 1, 1);
+						end
+						if ( this.tooltipLoyalty ) then
+							GameTooltip:AddLine(this.tooltipLoyalty, "", 1, 1, 1);
+						end
+						GameTooltip:Show();
+					end
+				</OnEnter>
+				<OnLeave>
+					GameTooltip:Hide();
+				</OnLeave>
+			</Scripts>
+		</Frame>
+		<Frame name="SUI_PetFrame_Info" parent="SUI_PetFrame" toplevel="true" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Pet_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_Pet_Name" inherits="SUI_FontTitle" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="166" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-35" y="14"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_Level" inherits="SUI_FontNumbers" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="30" y="-20"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_CastText" inherits="SUI_FontCognosisDim" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-45" y="2"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-173" y="2"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-184" y="2"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_HealthCount" inherits="SUI_FontNumbersThick" justifyh="RIGHT">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-35" y="-1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_HealthDeficit" inherits="SUI_FontNumbers_Dim" hidden="false" justifyh="LEFT">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-158" y="-1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_HealthPercentage" inherits="SUI_FontNumbers" justifyh="RIGHT">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-163" y="-1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_ManaCount" inherits="SUI_FontNumbersThick" justifyh="RIGHT">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-35" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false" justifyh="LEFT">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-158" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Pet_ManaPercentage" inherits="SUI_FontNumbers" justifyh="RIGHT">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-163" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Pet Icons --
+					<Texture name="SUI_Pet_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Pet_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="22" y="33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Pet_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Pet_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Pet_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Pet_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-61" y="-45"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_Pet_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_Pet_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_Pet_PVPIcon" hidden="true">
+						<Size>
+							<AbsDimension x="64" y="64"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Pet_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="44" y="10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+	
+	-- Party1 Frame --
+		<Frame name="SUI_Party1" parent="SpartanUI" frameStrata="LOW" hidden="true">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="-40"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Party1_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="238" y="85" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="1" top="0" bottom="0.6640625" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Button name="SUI_Party1_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party1" id="1">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SUI_Party1" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_Party1_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="238" y="85"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_Party1_HitRect">
+								<Size>
+									<AbsDimension x="238" y="85"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_PartyFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "party1");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnClick>
+					Sui_PartyFrame_OnClick();
+				</OnClick>
+			</Scripts>
+		</Button>
+		---------
+		<Frame name="SUI_Party1Frame" parent="SUI_Party1" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party1" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BORDER">
+					<Texture name="SUI_Party1_Portrait">
+						<Size>
+							<AbsDimension x="52" y="52" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="-8" y="-4" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_Party1_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="2" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party1_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party1_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="238" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party1_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-14" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party1_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_HealthBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party1_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-30" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party1_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party1_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party1_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party1_FocusBar" file="Interface\AddOns\SpartanUI\Animations\FocusBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party1_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party1_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party1_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party1_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party1_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Portrait">
+						<Size>
+							<AbsDimension x="128" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="30" y="-8" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Frame name="SUI_Party1Frame_Info" parent="SUI_Party1Frame" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="256" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party1_Plate" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party1_Overlap" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="256" y="85"/>
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_Plate" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="-04" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party1_ClassIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_ClassSmall" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-26" y="24" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Party1_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_Party1_Name" inherits="SUI_FontTitle" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="166" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-40" y="16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_Level" inherits="SUI_FontNumbers" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="25" y="18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_CastText" inherits="SUI_FontCognosisDim" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_HealthCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_HealthDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_HealthPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_ManaCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party1_ManaPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Icons --
+					<Texture name="SUI_Party1_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party1_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="14"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party1_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party1_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party1_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party1_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-6" y="-10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_Party1_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_Party1_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party1_PVPIcon" hidden="true">
+						<Size>
+							<AbsDimension x="64" y="64"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party1_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="42" y="-7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_Party1_Overlap, 0, 0.2265625, 0.6640625, 0, true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+	
+	-- Party2 Frame --
+		<Frame name="SUI_Party2" parent="SpartanUI" frameStrata="LOW" hidden="true">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="-120"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Party2_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="238" y="85" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="1" top="0" bottom="0.6640625" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Button name="SUI_Party2_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party2" id="1">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SUI_Party2" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_Party2_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="238" y="85"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_Party2_HitRect">
+								<Size>
+									<AbsDimension x="238" y="85"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_PartyFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "party2");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnClick>
+					Sui_PartyFrame_OnClick();
+				</OnClick>
+			</Scripts>
+		</Button>
+		---------
+		<Frame name="SUI_Party2Frame" parent="SUI_Party2" frameStrata="MEDIUM" hidden="false">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party2" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BORDER">
+					<Texture name="SUI_Party2_Portrait">
+						<Size>
+							<AbsDimension x="52" y="52" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="-8" y="-4" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_Party2_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="2" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party2_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party2_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="238" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party2_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-14" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party2_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_HealthBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party2_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-30" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party2_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party2_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party2_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party2_FocusBar" file="Interface\AddOns\SpartanUI\Animations\FocusBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party2_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party2_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party2_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party2_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party2_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Portrait">
+						<Size>
+							<AbsDimension x="128" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="30" y="-8" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Frame name="SUI_Party2Frame_Info" parent="SUI_Party2Frame" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="256" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party2_Plate" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party2_Overlap" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="256" y="85"/>
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_Plate" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="-04" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party2_ClassIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_ClassSmall" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-26" y="24" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Party2_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_Party2_Name" inherits="SUI_FontTitle" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="166" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-40" y="16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_Level" inherits="SUI_FontNumbers" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="25" y="18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_CastText" inherits="SUI_FontCognosisDim" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_HealthCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_HealthDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_HealthPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_ManaCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party2_ManaPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Icons --
+					<Texture name="SUI_Party2_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party2_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="14"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party2_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party2_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party2_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party2_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-6" y="-10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_Party2_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_Party2_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party2_PVPIcon" hidden="true">
+						<Size>
+							<AbsDimension x="64" y="64"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party2_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="42" y="-7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_Party2_Overlap, 0, 0.2265625, 0.6640625, 0, true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+
+	-- Party3 Frame --
+		<Frame name="SUI_Party3" parent="SpartanUI" frameStrata="LOW" hidden="true">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="-200"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Party3_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="238" y="85" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="1" top="0" bottom="0.6640625" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Button name="SUI_Party3_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party3" id="1">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SUI_Party3" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_Party3_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="238" y="85"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_Party3_HitRect">
+								<Size>
+									<AbsDimension x="238" y="85"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_PartyFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "party3");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnClick>
+					Sui_PartyFrame_OnClick();
+				</OnClick>
+			</Scripts>
+		</Button>
+		---------
+		<Frame name="SUI_Party3Frame" parent="SUI_Party3" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party3" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BORDER">
+					<Texture name="SUI_Party3_Portrait">
+						<Size>
+							<AbsDimension x="52" y="52" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="-8" y="-4" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_Party3_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="2" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party3_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party3_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="238" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party3_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-14" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party3_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_HealthBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party3_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-30" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party3_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party3_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party3_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party3_FocusBar" file="Interface\AddOns\SpartanUI\Animations\FocusBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party3_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party3_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party3_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party3_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party3_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Portrait">
+						<Size>
+							<AbsDimension x="128" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="30" y="-8" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Frame name="SUI_Party3Frame_Info" parent="SUI_Party3Frame" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="256" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party3_Plate" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party3_Overlap" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="256" y="85"/>
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_Plate" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="-04" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party3_ClassIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_ClassSmall" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-26" y="24" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Party3_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_Party3_Name" inherits="SUI_FontTitle" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="166" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-40" y="16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_Level" inherits="SUI_FontNumbers" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="25" y="18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_CastText" inherits="SUI_FontCognosisDim" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_HealthCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_HealthDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_HealthPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_ManaCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party3_ManaPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Icons --
+					<Texture name="SUI_Party3_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party3_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="14"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party3_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party3_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party3_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party3_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-6" y="-10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_Party3_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_Party3_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party3_PVPIcon" hidden="true">
+						<Size>
+							<AbsDimension x="64" y="64"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party3_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="42" y="-7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_Party3_Overlap, 0, 0.2265625, 0.6640625, 0, true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+	
+	-- Party4 Frame --
+		<Frame name="SUI_Party4" parent="SpartanUI" frameStrata="LOW" hidden="true">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="-280"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Party4_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="238" y="85" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="1" top="0" bottom="0.6640625" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Button name="SUI_Party4_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party4" id="1">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SUI_Party4" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_Party4_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="238" y="85"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_Party4_HitRect">
+								<Size>
+									<AbsDimension x="238" y="85"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_PartyFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "party4");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnClick>
+					Sui_PartyFrame_OnClick();
+				</OnClick>
+			</Scripts>
+		</Button>
+		---------
+		<Frame name="SUI_Party4Frame" parent="SUI_Party4" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="238" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party4" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BORDER">
+					<Texture name="SUI_Party4_Portrait">
+						<Size>
+							<AbsDimension x="52" y="52" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="-8" y="-4" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_Party4_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="2" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party4_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party4_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="238" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party4_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-14" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party4_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_HealthBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party4_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="LEFT" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="34" y="-30" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Party4_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party4_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party4_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party4_FocusBar" file="Interface\AddOns\SpartanUI\Animations\FocusBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Party4_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party4_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party4_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party4_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party4_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Portrait">
+						<Size>
+							<AbsDimension x="128" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="RIGHT" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="30" y="-8" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		--------
+		<Frame name="SUI_Party4Frame_Info" parent="SUI_Party4Frame" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="256" y="85"/>
+			</Size>
+			<Anchors>
+				<Anchor point="CENTER" relativeTo="SUI_Party4_Plate" relativePoint="CENTER">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Party4_Overlap" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="256" y="85"/>
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_Plate" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="-04" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party4_ClassIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_ClassSmall" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-26" y="24" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Party4_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_Party4_Name" inherits="SUI_FontTitle" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="166" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-40" y="16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_Level" inherits="SUI_FontNumbers" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="25" y="18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_CastText" inherits="SUI_FontCognosisDim" justifyh="RIGHT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_HealthCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_HealthDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_HealthPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_ManaCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-38" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-148" y="-33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Party4_ManaPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-154" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Icons --
+					<Texture name="SUI_Party4_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party4_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-39" y="14"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party4_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party4_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Party4_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party4_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-6" y="-10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_Party4_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_Party4_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_Party4_PVPIcon" hidden="true">
+						<Size>
+							<AbsDimension x="64" y="64"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Party4_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="42" y="-7"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_Party4_Overlap, 0, 0.2265625, 0.6640625, 0, true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+
+	--  Target  --
+		<Frame name="SUI_Target" frameStrata="LOW" hidden="true">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="423" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Target_Backdrop" file="Interface\AddOns\SpartanUI\Textures\Unit_Self_Backdrop">
+						<Size>
+							<AbsDimension x="64" y="64" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-290" y="191" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Button name="SUI_Target_Button" frameStrata="BACKGROUND" toplevel="true" movable="true" parent="SpartanUI">
+			<Size>
+				<AbsDimension x="260" y="80"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="95" y="150"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_Target_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="260" y="80"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_Target_HitRect">
+								<Size>
+									<AbsDimension x="260" y="80"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_TargetFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "target");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnClick>
+					Sui_TargetFrame_OnClick();
+				</OnClick>
+			</Scripts>
+		</Button>
+		<Frame name="SUI_TargetSibling" parent="SUI_Target" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_Target" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BORDER">
+					<Texture name="SUI_Target_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_PlateRight">
+						<Size>
+							<AbsDimension x="512" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="45" y="125" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="1" top="0" bottom="1" />
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Target_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_Ring">
+						<Size>
+							<AbsDimension x="256" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-107" y="124" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Frame name="SUI_TargetFrame" parent="SUI_Target" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_Target" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_Target_BuffBG" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_BuffTop" hidden="true">
+						<Size>
+							<AbsDimension x="256" y="32" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-195" y="235" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+					<Texture name="SUI_Target_Portrait">
+						<Size>
+							<AbsDimension x="63" y="63" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-290" y="194" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_Target_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-227" y="400" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_Target_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+					<Texture name="SUI_Target_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="256" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Target_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+					<Texture name="SUI_Target_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-233" y="172" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Target_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_HealthBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Target_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-263" y="155" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_Target_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Target_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Target_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Target_FocusBar" file="Interface\AddOns\SpartanUI\Animations\FocusBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_Target_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Frame name="SUI_TargetFrame_Info" parent="SUI_TargetFrame" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_Target" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_Target_ClassIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_ClassSmall" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="30" y="20" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="1" a="0.5"/>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Target_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-12" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_Target_Overlap" file="Interface\AddOns\SpartanUI\Textures\Unit_Main_PlateRight">
+						<Size>
+							<AbsDimension x="512" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Target_Plate" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_Combo1" file="Interface\AddOns\SpartanUI\Textures\Object_ComboPoint" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="32" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_Combo2" file="Interface\AddOns\SpartanUI\Textures\Object_ComboPoint" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="30" y="-14" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_Combo3" file="Interface\AddOns\SpartanUI\Textures\Object_ComboPoint" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="24" y="-26" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_Combo4" file="Interface\AddOns\SpartanUI\Textures\Object_ComboPoint" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="13" y="-33" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_Combo5" file="Interface\AddOns\SpartanUI\Textures\Object_ComboPoint" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="-35" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_Target_Name" inherits="SUI_FontTitle" justifyh="LEFT">
+						<Size>
+							<AbsDimension x="166" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="47" y="15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_Level" inherits="SUI_FontLevel" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-49" y="5"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_CastText" inherits="SUI_FontCognosisDim" justifyh="LEFT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="47" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="176" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="187" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_HealthCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="47" y="-18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_HealthDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="176" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_HealthPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="187" y="-18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_ManaCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="47" y="-36"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="176" y="-35"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_Target_ManaPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="187" y="-36"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Icons --
+					<Texture name="SUI_Target_EliteIcon" hidden="false">
+						<Size>
+							<AbsDimension x="128" y="128"/>
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeto="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-11" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Target_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-35" y="31"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Target_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_Target_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Target_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-14" y="-18"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_Target_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_Target_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_Target_PVPIcon" hidden="false">
+						<Size>
+							<AbsDimension x="54" y="50"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_Target_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-16" y="-26"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_Target_Overlap, 0, 1, 1, 0.70703125, true, true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+		<Frame name="$parent_ClassTooltip" parent="SUI_Target" frameStrata="HIGH" hidden="false">
+			<Size>
+				<AbsDimension x="24" y="24"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="$parent_ClassIcon" relativePoint="BOTTOMLEFT">
+					<Offset>
+						<AbsDimension x="-1" y="-1"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="$parent_Hit" hidden="true">
+						<Size>
+							<AbsDimension x="24" y="24" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="0" g="0" b="0" a="0.5"/>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnEnter>
+					SUI_MouseTooltip:Show();
+				</OnEnter>
+				<OnLeave>
+					SUI_MouseTooltip:Hide();
+				</OnLeave>
+			</Scripts>
+		</Frame>
+
+	
+	-- Target of Target Frame --
+		<Frame name="SUI_TOT" parent="SpartanUI" frameStrata="LOW">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="680" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_TOT_Plate" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="256" y="85" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-80" y="153" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="0.6640625" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Button name="SUI_TOT_Button" frameStrata="BACKGROUND" toplevel="true" movable="true" parent="SpartanUI">
+			<Size>
+				<AbsDimension x="238" y="72"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="356" y="154"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Frames>
+				<Frame name="SUI_TOT_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+					<Size>
+						<AbsDimension x="238" y="72"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="SUI_TOT_HitRect">
+								<Size>
+									<AbsDimension x="238" y="72"/>
+								</Size>
+								<Anchors>
+									<Anchor point="CENTER">
+										<Offset>
+											<AbsDimension x="0" y="0"/>
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Color r="0" g="0" b="0" a="0.5"/>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnLoad>
+							Sui_TargetFrameDropDown_OnLoad();
+						</OnLoad>
+					</Scripts>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnEnter>
+					Sui_UnitTooltip("enter", "targettarget");
+				</OnEnter>
+				<OnLeave>
+					Sui_UnitTooltip("exit");
+				</OnLeave>
+				<OnLoad>
+					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				</OnLoad>
+				<OnClick>
+					Sui_ToT_OnClick();
+				</OnClick>
+			</Scripts>
+		</Button>
+		<Frame name="SUI_TOTFrame" parent="SUI_TOT" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_TOT" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+				</Layer>
+				<Layer level="BORDER">
+					<Texture name="SUI_TOT_Portrait">
+						<Size>
+							<AbsDimension x="52" y="52" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-291" y="191" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="SUI_TOT_CastBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-276" y="188" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.5"/>
+					</Texture>
+					<Texture name="SUI_TOT_CastBar" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_TOT_CastBar_Latency" file="Interface\AddOns\SpartanUI\Animations\CastBar" hidden="true">
+						<Size>
+							<AbsDimension x="256" y="29" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_TOT_CastBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_TOT_HealthBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-148" y="171" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_TOT_HealthBar" file="Interface\AddOns\SpartanUI\Animations\HealthBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_HealthBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_TOT_ManaBar_Anchor" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-215" y="155" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<Color r="1" g="0" b="0" a="0.25"/>
+					</Texture>
+					<Texture name="SUI_TOT_ManaBar" file="Interface\AddOns\SpartanUI\Animations\ManaBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_TOT_RageBar" file="Interface\AddOns\SpartanUI\Animations\RageBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_TOT_EnergyBar" file="Interface\AddOns\SpartanUI\Animations\EnergyBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_TOT_FocusBar" file="Interface\AddOns\SpartanUI\Animations\FocusBar" hidden="true">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_ManaBar_Anchor" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.3125" top="0" bottom="0.0625" />
+					</Texture>
+					<Texture name="SUI_TOT_VoiceIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Audio" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_TOT_ReadyMaybe" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Maybe" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_TOT_ReadyNo" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_No" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_TOT_ReadyYes" file="Interface\AddOns\SpartanUI\Textures\Icon_Readycheck_Yes" hidden="true">
+						<Size>
+							<AbsDimension x="70" y="70" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="SUI_TOT_Ring" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Portrait">
+						<Size>
+							<AbsDimension x="128" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="-3" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="1" right="0" top="0" bottom="1" />
+					</Texture>
+				</Layer>
+			</Layers>
+		</Frame>
+		<Frame name="SUI_TOTFrame_Info" parent="SUI_TOTFrame" frameStrata="MEDIUM">
+			<Size>
+				<AbsDimension x="512" y="256"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOM" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+
+					<Texture name="SUI_TOT_Overlap" file="Interface\AddOns\SpartanUI\Textures\Unit_Extra_Plate">
+						<Size>
+							<AbsDimension x="256" y="85" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_TOT_Plate" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="198" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_TOT_ClassIcon" file="Interface\AddOns\SpartanUI\Textures\Icon_Class" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="25" y="24" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+					<Texture name="SUI_TOT_RaidIcon" file="Interface\TargetingFrame\UI-RaidTargetingIcons" hidden="true">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="22" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right=".25" top="0" bottom=".25" />
+					</Texture>
+		-- Font Strings --
+					<FontString name="SUI_TOT_Name" inherits="SUI_FontTitle" justifyh="LEFT">
+						<Size>
+							<AbsDimension x="140" y="15" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="42" y="16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_Level" inherits="SUI_FontNumbers" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="BOTTOM" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-25" y="19"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_CastText" inherits="SUI_FontCognosisDim" justifyh="LEFT">
+						<Size>
+							<AbsDimension x="110" y="10" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="43" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_CastLatency" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="150" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_CastTime" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="156" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_HealthCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="43" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_HealthDeficit" inherits="SUI_FontNumbers_Dim">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="150" y="-16"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_HealthPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="156" y="-17"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_ManaCount" inherits="SUI_FontNumbersThick">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="43" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_ManaDeficit" inherits="SUI_FontNumbers_Dim" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="150" y="-33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_TOT_ManaPercentage" inherits="SUI_FontNumbers">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="156" y="-34"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+		-- Icons --
+					<Texture name="SUI_TOT_LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_TOT_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="22" y="33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_TOT_MasterIcon" file="Interface\GroupFrame\UI-Group-MasterLooter" hidden="true">
+						<Size>
+							<AbsDimension x="16" y="16"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_TOT_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-41" y="8"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="SUI_TOT_RestIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="31" y="33"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_TOT_LeaderIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-49" y="-45"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.421875"/>
+					</Texture>
+					<Texture name="SUI_TOT_AttackIcon" file="Interface\CharacterFrame\UI-StateIcon" hidden="true">
+						<Size>
+							<AbsDimension x="32" y="32"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="SUI_TOT_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1.0" top="0" bottom="0.5"/>
+					</Texture>
+					<Texture name="SUI_TOT_PVPIcon" hidden="true">
+						<Size>
+							<AbsDimension x="64" y="64"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeto="SUI_TOT_RestIcon" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="44" y="10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					Sui_Crop(SUI_TOT_Overlap, 0, 0, 0.6640625, 0.2265625, true);
+				</OnLoad>
+			</Scripts>
+		</Frame>
+
+--[  Tooltips  ]--
+
+	-- Mouse Tooltip --
+		<Frame name="SUI_MouseTooltip" frameStrata="DIALOG" parent="SpartanUI" toplevel="false" hidden="true">
+			<Size>
+				<AbsDimension x="1" y="1"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="SpartanUI" relativePoint="BOTTOMLEFT">
+					<Offset>
+						<AbsDimension x="0" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="OVERLAY">
+					<FontString name="$parent_Text" inherits="SUI_FontLevel" justifyh="LEFT">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+				</Layer>
+				<Layer level="BACKGROUND">
+					<Texture name="$parent_Background" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_Text" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="6" y="6" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPLEFT" relativeTo="$parent_Text" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="6" y="-6" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_Text" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="-6" y="-6" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_Text" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="-6" y="6" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1" top="0.4375" bottom="0.5625" />
+					</Texture>
+				</Layer>
+				<Layer level="BORDER">
+					<Texture name="$parent_TL" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_Background" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-16" y="16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.5" />
+					</Texture>
+					<Texture name="$parent_BL" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_Background" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="-16" y="-16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0.5" bottom="1" />
+					</Texture>
+					<Texture name="$parent_TR" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_Background" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="16" y="16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="0" top="0" bottom="0.5" />
+					</Texture>
+					<Texture name="$parent_BR" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_Background" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="16" y="-16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="0" top="0.5" bottom="1" />
+					</Texture>
+					<Texture name="$parent_L" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_TL" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_TL" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_BL" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_BL" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0.4375" bottom="0.5625" />
+					</Texture>
+					<Texture name="$parent_R" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_TR" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_TR" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_BR" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_BR" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="0" top="0.4375" bottom="0.5625" />
+					</Texture>
+					<Texture name="$parent_T" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_TL" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_TR" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_TL" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_TR" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1" top="0" bottom="0.5" />
+					</Texture>
+					<Texture name="$parent_B" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_BL" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_BR" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_BL" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_BR" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1" top="0.5" bottom="1" />
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+					<Texture name="$parent_Arrow" file="Interface\AddOns\SpartanUI\Textures\Object_TooltipOrigin">
+						<Size>
+							<AbsDimension x="32" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_BL" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="-16" y="1" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+			</Layers>
+			<Scripts>
+				<OnLoad>
+					SUI_MouseTooltip_Text:SetText("Not available.");
+				</OnLoad>
+			</Scripts>
+		</Frame>
+
+	-- XP Tooltip --
+		<Frame name="SUI_XP_Hit" frameStrata="DIALOG" parent="SpartanUI" toplevel="false" hidden="false">
+			<Size>
+				<AbsDimension x="400" y="20"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMRIGHT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="-100" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnEnter>
+					Sui_XP_TooltipVisibility("show");
+				</OnEnter>
+				<OnLeave>
+					Sui_XP_TooltipVisibility("hide");
+				</OnLeave>
+			</Scripts>
+		</Frame>
+		<Frame name="SUI_XP_Tooltip" frameStrata="DIALOG" parent="SUI_XP_Hit" toplevel="false" hidden="true">
+			<Size>
+				<AbsDimension x="400" y="25"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMRIGHT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="-99" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="SUI_XP_ToolipBG" file="Interface\AddOns\SpartanUI\Textures\Object_TooltipStat">
+						<Size>
+							<AbsDimension x="512" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-2" y="2" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="BORDER">
+					<Texture name="SUI_XP_Portrait" file="Interface\AddOns\SpartanUI\Textures\Object_TooltipStat">
+						<Size>
+							<AbsDimension x="52" y="52" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="-164" y="61" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<FontString name="SUI_XP_Name" inherits="SUI_FontTitle16" hidden="false" justifh="LEFT">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_XP_Portrait" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="37" y="10"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_XP_CurrentLevel" inherits="SUI_FontNumbers" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_XP_Name" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="2" y="-12"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_XP_CurrentXP" inherits="SUI_FontNumbers" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="181" y="74"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_XP_CurrentRested" inherits="SUI_FontNumbers" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_XP_CurrentXP" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="-15"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_XP_EstimatedTime" inherits="SUI_FontNumbers" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_XP_CurrentRested" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="-13"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="SUI_XP_EstimatedMobs" inherits="SUI_FontNumbers" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="SUI_XP_EstimatedTime" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="-13"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+				</Layer>
+			</Layers>
+		</Frame>
+
+	-- Rep Tooltip --
+		<Frame name="SUI_Rep_Hit" frameStrata="DIALOG" parent="SpartanUI" toplevel="false" hidden="false">
+			<Size>
+				<AbsDimension x="400" y="20"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="100" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Scripts>
+				<OnEnter>
+					Sui_Rep_TooltipVisibility("show");
+				</OnEnter>
+				<OnLeave>
+					Sui_Rep_TooltipVisibility("hide");
+				</OnLeave>
+			</Scripts>
+		</Frame>
+		<Frame name="SUI_Rep_Tooltip" frameStrata="DIALOG" parent="SUI_Rep_Hit" toplevel="false" hidden="true">
+			<Size>
+				<AbsDimension x="400" y="25"/>
+			</Size>
+			<Anchors>
+				<Anchor point="BOTTOMLEFT" relativeTo="SUI_HUD" relativePoint="BOTTOM">
+					<Offset>
+						<AbsDimension x="100" y="0"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="BACKGROUND">
+					<Texture name="$parent_BG" file="Interface\AddOns\SpartanUI\Textures\Object_TooltipStat">
+						<Size>
+							<AbsDimension x="512" y="128" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOM" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="2" y="2" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<FontString name="$parent_Faction" inherits="SUI_FontTitle16" hidden="false" justifh="LEFT">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_BG" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="66" y="-33"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="$parent_Standing" inherits="SUI_FontNumbers" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_Faction" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="1" y="1"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="$parent_Count" inherits="SUI_FontNumbers" justifyh="RIGHT" hidden="false">
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_BG" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="-70" y="-37"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="$parent_ToLevel" inherits="SUI_FontNumbers" hidden="false">
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_Count" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-12"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="$parent_Description" inherits="GameFontNormalSmall" justifyh="LEFT" justifyv="TOP" hidden="false">
+						<Size>
+							<AbsDimension x="375" y="40" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_Faction" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="-5"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+				</Layer>
+			</Layers>
+		</Frame>
+
+--[  Buffs  ]--
+
+	-- Buff Tooltip --
+		<Frame name="SUI_Buff_LeftTooltip" frameStrata="DIALOG" parent="SpartanUI" toplevel="false" hidden="true">
+			<Size>
+				<AbsDimension x="1" y="1"/>
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
+					<Offset>
+						<AbsDimension x="254" y="-30"/>
+					</Offset>
+				</Anchor>
+			</Anchors>
+			<Layers>
+				<Layer level="ARTWORK">
+					<Texture name="$parent_Icon1">
+						<Size>
+							<AbsDimension x="20" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.0625" right="0.9375" top="0.0625" bottom="0.9375" />
+					</Texture>
+					<Texture name="$parent_Bar1" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_SpartanBlue">
+						<Size>
+							<AbsDimension x="210" y="20" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_Icon1" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+				</Layer>
+				<Layer level="OVERLAY">
+					<Texture name="$parent_Flare1" file="Interface\AddOns\SpartanUI\Textures\Object_Bar_Flare">
+						<Size>
+							<AbsDimension x="16" y="28" />
+						</Size>
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="$parent_Bar1" relativePoint="LEFT">
+								<Offset>
+									<AbsDimension x="1" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<FontString name="$parent_Time1" inherits="SUI_FontLevel" justifyh="LEFT">
+						<Anchors>
+							<Anchor point="LEFT" relativeTo="$parent_Icon1" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="-225" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="$parent_Name1" inherits="SUI_FontLevel" justifyh="RIGHT">
+						<Anchors>
+							<Anchor point="RIGHT" relativeTo="$parent_Bar1" relativePoint="RIGHT">
+								<Offset>
+									<AbsDimension x="-7" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+					<FontString name="$parent_Count1" inherits="SUI_FontLevel" justifyh="CENTER">
+						<Anchors>
+							<Anchor point="CENTER" relativeTo="$parent_Icon1" relativePoint="CENTER">
+								<Offset>
+									<AbsDimension x="0" y="0"/>
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</FontString>
+				</Layer>
+				<Layer level="BACKGROUND">
+					<Texture name="$parent_Background" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="1" y="1" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_Icon1" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="-6" y="-6" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_Icon1" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="-6" y="6" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_Icon1" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="-236" y="6" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPLEFT" relativeTo="$parent_Icon1" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="-236" y="-6" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1" top="0.4375" bottom="0.5625" />
+					</Texture>
+				</Layer>
+				<Layer level="BORDER">
+					<Texture name="$parent_TL" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_Background" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="-16" y="16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0" bottom="0.5" />
+					</Texture>
+					<Texture name="$parent_BL" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_Background" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="-16" y="-16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0.5" bottom="1" />
+					</Texture>
+					<Texture name="$parent_TR" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_Background" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="16" y="16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="0" top="0" bottom="0.5" />
+					</Texture>
+					<Texture name="$parent_BR" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_Background" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="16" y="-16" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="0" top="0.5" bottom="1" />
+					</Texture>
+					<Texture name="$parent_L" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_TL" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_TL" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_BL" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_BL" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0" right="0.5" top="0.4375" bottom="0.5625" />
+					</Texture>
+					<Texture name="$parent_R" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_TR" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_TR" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_BR" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_BR" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="0" top="0.4375" bottom="0.5625" />
+					</Texture>
+					<Texture name="$parent_T" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_TL" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_TR" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_TL" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_TR" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1" top="0" bottom="0.5" />
+					</Texture>
+					<Texture name="$parent_B" file="Interface\AddOns\SpartanUI\Textures\Object_Tooltip">
+						<Size>
+							<AbsDimension x="16" y="16" />
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent_BL" relativePoint="TOPRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="TOPRIGHT" relativeTo="$parent_BR" relativePoint="TOPLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMLEFT" relativeTo="$parent_BL" relativePoint="BOTTOMRIGHT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+							<Anchor point="BOTTOMRIGHT" relativeTo="$parent_BR" relativePoint="BOTTOMLEFT">
+								<Offset>
+									<AbsDimension x="0" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+						<TexCoords left="0.5" right="1" top="0.5" bottom="1" />
+					</Texture>
+				</Layer>
+				<Layer level="ARTWORK">
+				</Layer>
+			</Layers>
+		</Frame>
+	</Frames>
+
+--[  SCRIPTS  ]--
+	<Scripts>
+		<OnLoad>
+			Sui_OnLoad();
+			this.TimeSinceLastUpdate = 0
+		</OnLoad>
+		<OnEvent>
+			Sui_OnEvent(event)
+		</OnEvent>
+		<OnUpdate>
+			Sui_OnUpdate(arg1)
+			Sui_BuffScan("player")
+		</OnUpdate>
+		<OnShow>
+			WorldFrame:SetPoint("BOTTOMLEFT", "SpartanUI", "BOTTOMLEFT", 0, 76)
+			WorldFrame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", 0, 76)
+		</OnShow>
+		<OnHide>
+			WorldFrame:SetPoint("BOTTOMLEFT", "SpartanUI", "BOTTOMLEFT", 0, 0)
+			WorldFrame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", 0, 0)
+		</OnHide>
+	</Scripts>
+	</Frame>
+</Ui>

@@ -1,0 +1,12 @@
+<Ui>
+	<Frame name="AdaptFrame" hidden="true">
+		<Scripts>
+			<OnLoad>
+				Adapt.OnLoad(arg1)
+			</OnLoad>
+			<OnEvent>
+				Adapt.OnEvent(arg1)
+			</OnEvent>
+		</Scripts>
+	</Frame>
+</Ui>

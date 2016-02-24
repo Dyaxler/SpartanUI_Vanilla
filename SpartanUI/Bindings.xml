@@ -1,0 +1,5 @@
+<Bindings>
+	<Binding name="SUI_CHATTOGGLE" description="Toggle the chat window." header="SPARTANUI">
+		Sui_ChatToggle()
+	</Binding>
+</Bindings>

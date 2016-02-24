@@ -1,0 +1,127 @@
+<Ui>
+	<Font name="SUI_FontTitle16" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="16"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="1" y="-1"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="SUI_FontTitle" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="12.5"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="1" y="-1"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="SUI_FontLevel" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="OUTLINE" virtual="true">
+		<FontHeight>
+			<AbsValue val="11"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="1" y="-1"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="SUI_FontNumbers" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="OUTLINE" virtual="true">
+		<FontHeight>
+			<AbsValue val="10.5"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="0" y="0"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="SUI_FontNumbersThick" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="10.5"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="1" y="-1"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="SUI_FontNumbers_Dim" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="OUTLINE" virtual="true">
+		<FontHeight>
+			<AbsValue val="9"/>
+		</FontHeight>
+		<Color r="0.5" g="0.5" b="0.5"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="1" y="-1"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="SUI_FontTitle_Lang" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="12.5"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="0" y="-1"/>
+			</Offset>
+			<Color r="0" g="0" b="0"/>
+		</Shadow>
+	</Font>
+	<Font name="SUI_Multilingual" font="Interface\AddOns\SpartanUI\Fonts\MyriadPro-Regular.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="12"/>
+		</FontHeight>
+		<Color r="1" g="1" b="1"/>
+	</Font>
+	
+	<Font name="SUI_Multilingual16" font="Interface\AddOns\SpartanUI\Fonts\MyriadPro-Regular.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="16"/>
+		</FontHeight>
+		<Color r="1" g="1" b="1"/>
+	</Font>
+	<Font name="SUI_Multilingual14" font="Interface\AddOns\SpartanUI\Fonts\MyriadPro-Regular.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="14"/>
+		</FontHeight>
+		<Color r="1" g=".8" b="0"/>
+	</Font>
+	
+	--[[ Prime Fonts ]]--
+	
+	<Font name="SUI_FontCognosis" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="11"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+	</Font>
+	<Font name="SUI_FontCognosisDim" font="Interface\AddOns\SpartanUI\Fonts\Cognosis.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="9"/>
+		</FontHeight>
+		<Color r="0.9" g="0.9" b="0.9"/>
+	</Font>
+	<Font name="SUI_FontMicro" font="Interface\AddOns\SpartanUI\Fonts\micro.ttf" outline="NORMAL" virtual="true">
+		<FontHeight>
+			<AbsValue val="10"/>
+		</FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+	</Font>
+	
+</Ui>
