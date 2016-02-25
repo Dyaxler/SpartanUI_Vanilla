@@ -674,9 +674,9 @@ end
 --|  Purpose:	Adapt needs to be rebuilt.  This is a temporary fix for a bug.				|--
 -----------------------------------------------------------------------------------------------
 function Sui_PFix()
-	if IsAddOnLoaded("Adapt")==1 then
+	--[[if IsAddOnLoaded("Adapt")==1 then
     	SUI_TOT_PortraitModelModel:SetFrameLevel(3)
-    end
+    end]]--
 end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Repositions bags for HUD offset.					    |--

@@ -1875,7 +1875,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -1888,7 +1888,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -1901,7 +1901,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party1_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -2212,7 +2212,7 @@
 			<Anchors>
 				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
 					<Offset>
-						<AbsDimension x="0" y="-120"/>
+						<AbsDimension x="0" y="-140"/>
 					</Offset>
 				</Anchor>
 			</Anchors>
@@ -2298,7 +2298,7 @@
 			</Scripts>
 		</Button>
 		---------
-		<Frame name="SUI_Party2Frame" parent="SUI_Party2" frameStrata="MEDIUM" hidden="false">
+		<Frame name="SUI_Party2Frame" parent="SUI_Party2" frameStrata="MEDIUM" hidden="true">
 			<Size>
 				<AbsDimension x="238" y="85"/>
 			</Size>
@@ -2363,7 +2363,7 @@
 							</Anchor>
 						</Anchors>
 					</Texture>
-					<Texture name="SUI_Party2_HealthBar_Anchor" hidden="true">
+					<Texture name="SUI_Party2_HealthBar_Anchor" hidden="false">
 						<Size>
 							<AbsDimension x="20" y="20" />
 						</Size>
@@ -2420,7 +2420,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -2433,7 +2433,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -2446,7 +2446,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party2_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -2757,7 +2757,7 @@
 			<Anchors>
 				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
 					<Offset>
-						<AbsDimension x="0" y="-200"/>
+						<AbsDimension x="0" y="-240"/>
 					</Offset>
 				</Anchor>
 			</Anchors>
@@ -2965,7 +2965,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -2978,7 +2978,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -2991,7 +2991,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party3_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -3302,7 +3302,7 @@
 			<Anchors>
 				<Anchor point="TOPLEFT" relativeTo="SpartanUI" relativePoint="TOPLEFT">
 					<Offset>
-						<AbsDimension x="0" y="-280"/>
+						<AbsDimension x="0" y="-340"/>
 					</Offset>
 				</Anchor>
 			</Anchors>
@@ -3510,7 +3510,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -3523,7 +3523,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>
@@ -3536,7 +3536,7 @@
 							<AbsDimension x="1" y="1" />
 						</Size>
 						<Anchors>
-							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="TOPRIGHT">
+							<Anchor point="BOTTOMLEFT" relativeTo="SUI_Party4_ManaBar_Anchor" relativePoint="BOTTOMRIGHT">
 								<Offset>
 									<AbsDimension x="0" y="0" />
 								</Offset>

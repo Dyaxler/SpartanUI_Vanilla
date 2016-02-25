@@ -314,7 +314,7 @@ function Adapt.Shape(i)
 		back:SetHeight(height)
 		model:ClearAllPoints()
 		model:SetPoint("CENTER",i,"CENTER",Adapt.xOffset,Adapt.yOffset)
-		model:SetWidth(width*.82)
-		model:SetHeight(height*.82)
+		model:SetWidth(width*.75)
+		model:SetHeight(height*.75)
 	end
 end
