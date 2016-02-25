@@ -1,0 +1,15 @@
+----------------------------------------------------------------------------------
+
+v0.9.1:
+* Fixed party frames Rage, Energy and Focus bars. They were assigned the wrong anchor points in the XML resulting in them appearing over the health bar.
+
+* Adjusted Party1, 2, 3, 4 frames and spaced them further apart - they were previously too close and appeared squished. 
+
+* Reduced the portrait sizes to make them appear more centered in the unit frames
+
+----------------------------------------------------------------------------------
+
+v0.9:
+* Initial release
+
+----------------------------------------------------------------------------------
