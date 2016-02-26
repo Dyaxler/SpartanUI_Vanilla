@@ -1529,6 +1529,8 @@ function Sui_CastMath(toon, sName, sDuration, barwidth, barheight, texture, sDel
 	if suiData.unit[toonID].isChanneling==1 then
 		startTime = GetTime()
 		GameTime(startTime)
+		sDuration = tonumber(sDuration)
+		if not sDuration then return end
 		endTime = startTime + (sDuration/1000)
 		if sDelay then return end
 		if not endTime then
@@ -3555,6 +3557,8 @@ function Sui_OnEvent(event)
 		-- ARG2: spell cast time (ms)
 		Sui_InitCastMath("player", arg1, arg2, "isCasting", 1)
 	elseif ( event == "SPELLCAST_STOP" or event == "SPELLCAST_CHANNEL_STOP" ) then		-- cast stop
+		Sui_InitCastMath("player", _, _, "isCasting", 0)
+		Sui_InitCastMath("player", _, _, "isChanneling", 0)
 	elseif event == "SPELLCAST_CHANNEL_START" then						-- channel start
 		CastingBarFrame:Hide()
 		-- ARG1: spell cast time (ms)
@@ -3562,6 +3566,7 @@ function Sui_OnEvent(event)
 		Sui_InitCastMath("player", arg2, arg1, "isChanneling", 1)
 	elseif ( event == "SPELLCAST_FAILED" or event == "SPELLCAST_INTERRUPTED" ) then		-- spell not ready
 		Sui_InitCastMath("player", _, _, "isCasting", 0)
+		Sui_InitCastMath("player", _, _, "isChanneling", 0)
 	elseif event == "SPELLCAST_DELAYED" then						-- a real interruption (but for casts only)
 		-- ARG1: spell cast time delay(ms)
 		if arg1 == 0 then return end
@@ -3571,7 +3576,7 @@ function Sui_OnEvent(event)
 	elseif event == "SPELLCAST_CHANNEL_UPDATE" then						-- a real interruption (but for channel only)
 		-- ARG1: spell cast time (ms)
 		if arg1 == 0 then return end
-		Sui_InitCastMath("player", _, _, "isCasting", 1, arg1)
+		Sui_InitCastMath("player", _, _, "isChanneling", 1, arg1)
 		suiData.unit[1].spellEnd = suiData.unit[1].spellEnd + (arg1/1000)
 		suiData.unit[1].spellDuration = suiData.unit[1].spellDuration + (arg1/1000)
 	elseif event == "VARIABLES_LOADED" then
@@ -3607,6 +3612,7 @@ function Sui_OnEvent(event)
 			SUI_MinimapCoords:Show()
 			SetMapToCurrentZone()
 		end
+		Sui_BarFix()
 	end
 end
 -----------------------------------------------------------------------------------------------
