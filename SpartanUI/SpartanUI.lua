@@ -993,6 +993,8 @@ function Sui_Bartender()
 		tblMerge(CustomConfig, db)
 	end
 	Bartender:OnProfileEnable()
+	-- Added fix for zone/instance loading issue
+	Bartender:EnableAllBars()
 end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Bartender re-anchors its frames after each setup.  This detaches them and   |--
@@ -3474,6 +3476,8 @@ function Sui_OnEvent(event)
 		end
 		suiData.AFKTimestampStart = 1
 		suiData.AFKTimestampStop = 1
+		-- Added redundant fix for zone/instance issue here in case zone is ready before loading UI is complete.
+		Bartender:EnableAllBars()
 	elseif event == "PLAYER_LEAVING_WORLD" then
 		SetCVar("cameraYawMoveSpeed","230")
 		MoveViewRightStop()
@@ -3612,7 +3616,6 @@ function Sui_OnEvent(event)
 			SUI_MinimapCoords:Show()
 			SetMapToCurrentZone()
 		end
-		Sui_BarFix()
 	end
 end
 -----------------------------------------------------------------------------------------------
