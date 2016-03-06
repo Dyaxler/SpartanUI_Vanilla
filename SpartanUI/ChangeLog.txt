@@ -1,5 +1,6 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD:SpartanUI/ChangeLog.txt
 v0.9.4:
 * Fixed an issue with users not able to individually select party members. This also affected the RightClick menu and cast macros.
 * Added a /sui menu toggle to disable AutoUI Resize for those users who are running in a resolution lower than 1920 x 1080 (Wide).
@@ -8,6 +9,8 @@ v0.9.4:
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+=======
+>>>>>>> origin/master:ChangeLog
 v0.9.3:
 * Fixed an issue with Zone/Instance/Boat/Taxi causing action bars to disappear
 
