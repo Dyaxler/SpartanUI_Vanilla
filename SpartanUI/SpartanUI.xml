@@ -1732,7 +1732,7 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_PartyFrameDropDown_OnLoad();
+							Sui_Party1FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
@@ -1748,7 +1748,7 @@
 					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				</OnLoad>
 				<OnClick>
-					Sui_PartyFrame_OnClick();
+					Sui_Party1Frame_OnClick();
 				</OnClick>
 			</Scripts>
 		</Button>
@@ -2204,7 +2204,7 @@
 			</Scripts>
 		</Frame>
 	
-	-- Party2 Frame --
+-- Party2 Frame --
 		<Frame name="SUI_Party2" parent="SpartanUI" frameStrata="LOW" hidden="true">
 			<Size>
 				<AbsDimension x="238" y="85"/>
@@ -2235,7 +2235,7 @@
 			</Layers>
 		</Frame>
 		--------
-		<Button name="SUI_Party2_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party2" id="1">
+		<Button name="SUI_Party2_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party2" id="2">
 			<Size>
 				<AbsDimension x="238" y="85"/>
 			</Size>
@@ -2247,7 +2247,7 @@
 				</Anchor>
 			</Anchors>
 			<Frames>
-				<Frame name="SUI_Party2_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+				<Frame name="SUI_Party2_DropDown" inherits="UIDropDownMenuTemplate" id="2" hidden="true">
 					<Size>
 						<AbsDimension x="238" y="85"/>
 					</Size>
@@ -2277,14 +2277,14 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_PartyFrameDropDown_OnLoad();
+							Sui_Party2FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
 			</Frames>
 			<Scripts>
 				<OnEnter>
-					Sui_UnitTooltip("enter", "party2");
+					Sui_UnitTooltip("enter", "Party2");
 				</OnEnter>
 				<OnLeave>
 					Sui_UnitTooltip("exit");
@@ -2293,12 +2293,12 @@
 					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				</OnLoad>
 				<OnClick>
-					Sui_PartyFrame_OnClick();
+					Sui_Party2Frame_OnClick();
 				</OnClick>
 			</Scripts>
 		</Button>
 		---------
-		<Frame name="SUI_Party2Frame" parent="SUI_Party2" frameStrata="MEDIUM" hidden="true">
+		<Frame name="SUI_Party2Frame" parent="SUI_Party2" frameStrata="MEDIUM">
 			<Size>
 				<AbsDimension x="238" y="85"/>
 			</Size>
@@ -2363,7 +2363,7 @@
 							</Anchor>
 						</Anchors>
 					</Texture>
-					<Texture name="SUI_Party2_HealthBar_Anchor" hidden="false">
+					<Texture name="SUI_Party2_HealthBar_Anchor" hidden="true">
 						<Size>
 							<AbsDimension x="20" y="20" />
 						</Size>
@@ -2780,7 +2780,7 @@
 			</Layers>
 		</Frame>
 		--------
-		<Button name="SUI_Party3_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party3" id="1">
+		<Button name="SUI_Party3_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party3" id="3">
 			<Size>
 				<AbsDimension x="238" y="85"/>
 			</Size>
@@ -2792,7 +2792,7 @@
 				</Anchor>
 			</Anchors>
 			<Frames>
-				<Frame name="SUI_Party3_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+				<Frame name="SUI_Party3_DropDown" inherits="UIDropDownMenuTemplate" id="3" hidden="true">
 					<Size>
 						<AbsDimension x="238" y="85"/>
 					</Size>
@@ -2822,7 +2822,7 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_PartyFrameDropDown_OnLoad();
+							Sui_Party3FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
@@ -2838,7 +2838,7 @@
 					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				</OnLoad>
 				<OnClick>
-					Sui_PartyFrame_OnClick();
+					Sui_Party3Frame_OnClick();
 				</OnClick>
 			</Scripts>
 		</Button>
@@ -3325,7 +3325,7 @@
 			</Layers>
 		</Frame>
 		--------
-		<Button name="SUI_Party4_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party4" id="1">
+		<Button name="SUI_Party4_Button" frameStrata="BACKGROUND" movable="true" toplevel="true" parent="SUI_Party4" id="4">
 			<Size>
 				<AbsDimension x="238" y="85"/>
 			</Size>
@@ -3337,7 +3337,7 @@
 				</Anchor>
 			</Anchors>
 			<Frames>
-				<Frame name="SUI_Party4_DropDown" inherits="UIDropDownMenuTemplate" id="1" hidden="true">
+				<Frame name="SUI_Party4_DropDown" inherits="UIDropDownMenuTemplate" id="4" hidden="true">
 					<Size>
 						<AbsDimension x="238" y="85"/>
 					</Size>
@@ -3367,7 +3367,7 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_PartyFrameDropDown_OnLoad();
+							Sui_Party4FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
@@ -3383,7 +3383,7 @@
 					this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				</OnLoad>
 				<OnClick>
-					Sui_PartyFrame_OnClick();
+					Sui_Party4Frame_OnClick();
 				</OnClick>
 			</Scripts>
 		</Button>

@@ -1,6 +1,6 @@
 ## Interface: 11200
-## Title: SpartanUI |cFFFF0000 ALPHA|r
-## Version: v0.9
+## Title: SpartanUI v0.9.4|cFFFF0000 ALPHA|r
+## Version: v0.9.4
 ## Author: Dyaxler
 ## X-Email: dyaxler@hotmail.com
 ## X-Date: Feburary 20, 2016

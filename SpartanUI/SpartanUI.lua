@@ -26,6 +26,7 @@ function Sui_InitializeVariables(protectVars)
 		[6] = { "PartyInRaid" },
 		[7] = { "broadcastToggle" },
 		[8] = { "rightbackdrop" },
+		[9] = { "autoresToggle" },
 	}
 	if protectVars then
 		while protectedVars[i] and protectedVars[i][1] do
@@ -80,6 +81,7 @@ function Sui_InitializeVariables(protectVars)
 		buffToggle = "on",
 		partyToggle = "on",
 		broadcastToggle = "on",
+		autoresToggle = "on",
 		rightbackdrop = "on",
 		PartyInRaid = "off",
 		layout = "Standard",
@@ -381,7 +383,11 @@ function Sui_Setup()
 	Sui_ChatFrame("setup")
 	Sui_LoadModules()
 	Sui_MinimapFix()
-	Sui_ResDetect()
+	if suiData.autoresToggle == "on" then
+		Sui_ResDetect()
+	elseif suiData.autoresToggle == "off" then
+		return
+	end
 	if suiData.popUps == "on" then
 		SUI_PopLeft_Hit:Show()
 		SUI_PopRight_Hit:Show()
@@ -415,6 +421,14 @@ function Sui_SlashCommand(msg)
 		godmode=1
 	elseif msg=="fixres" then
 		Sui_ResDetect()
+	elseif msg == "autores" then								-- on by default
+		if arg1=="on" then
+			suiData.autoresToggle = "on"
+			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: AutoUI Resize on - Please reload your UI.", 0.5, 0.5, 0.5)
+		elseif arg1=="off" then
+			suiData.autoresToggle = "off"
+			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: AutoUI Resize off - Please reload your UI.", 0.5, 0.5, 0.5)
+		end
 	elseif msg==SUIL.ENGLISH.UI.VERSION or msg==SUI_Lang.UI.VERSION or msg=="version" then
 		if (UnitInParty("player")) and (suiData.broadcastToggle == "on") then
 			SendAddonMessage("SUI", "find "..UnitName("player").." version ".."current", "PARTY", arg1 or UnitName("target"))
@@ -496,12 +510,6 @@ function Sui_SlashCommand(msg)
 			if (UnitExists("party1") == 1) and (suiData.broadcastToggle == "on") then
 				SendAddonMessage("SUI", "find "..UnitName("player").." performance "..value.." ", "PARTY", arg1)
 			end
-	elseif msg=="event" then
-		Sui_FindEvents(arg1)
-	elseif msg=="children" then
-		Sui_FindChildren(arg1)
-	elseif msg=="conjure" then
-		Sui_BuffConjure()
 	elseif msg=="popup" then
 		if arg1=="on" then								-- on by default
 			suiData.popUps = "on"
@@ -519,7 +527,6 @@ function Sui_SlashCommand(msg)
 			suiData.buffToggle = "off"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Buffs off - Please reload your UI.", 0.5, 0.5, 0.5)
 			ReloadUI()
-
 		elseif arg1=="on" then
 			suiData.buffToggle = "on"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Buffs on - Please reload your UI.", 0.5, 0.5, 0.5)
@@ -529,7 +536,6 @@ function Sui_SlashCommand(msg)
 		if arg1=="on" then
 			suiData.broadcastToggle = "on"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Broadcast on.", 0.5, 0.5, 0.5)
-
 		elseif arg1=="off" then
 			suiData.broadcastToggle = "off"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Broadcast off.", 0.5, 0.5, 0.5)
@@ -538,7 +544,6 @@ function Sui_SlashCommand(msg)
 		if arg1=="off" then
 			suiData.partyToggle = "off"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Party Frames off.", 0.5, 0.5, 0.5)
-
 		elseif arg1=="on" then
 			suiData.partyToggle = "on"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Party Frames on.", 0.5, 0.5, 0.5)
@@ -548,7 +553,6 @@ function Sui_SlashCommand(msg)
 		if arg1=="on" then
 			suiData.PartyInRaid = "on"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Party Frames while in RAID on.", 0.5, 0.5, 0.5)
-
 		elseif arg1=="off" then
 			suiData.PartyInRaid = "off"
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Party Frames while in RAID off.", 0.5, 0.5, 0.5)
@@ -608,6 +612,7 @@ function Sui_HelpMenu(msg)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffversion|r (Checks version of SUI)", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffstats|r (Checks your game performance", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0fffixres|r (Runs screen res check manually)", 0.75, 0.75, 0.75)
+		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffautores|r (Turns off autoui resize)", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("--------------------------------------------------", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffbroadcast|r |c0000ffc0on/off*|r (Sends SUI Addon messages)", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0fficons|r |c0000ffc0color|r, |c0000ffc0grey|r, |c0000ffc0default*|r (Raid target icon markers)", 0.75, 0.75, 0.75)
@@ -1127,15 +1132,15 @@ end
 			return
 		end
 	end
-
+	------------------
 	function Sui_SelfFrameDropDown_OnLoad()
 		UIDropDownMenu_Initialize(PlayerFrameDropDown, Sui_SelfFrameDropDown_Initialize, "MENU")
 	end
-
+	------------------
 	function Sui_SelfFrameDropDown_Initialize()
 		UnitPopup_ShowMenu(PlayerFrameDropDown, "SELF", "player")
 	end
-
+	------------------
 	function Sui_Self_OnReceiveDrag()
 		if ( CursorHasItem() ) then
 			AutoEquipCursorItem()
@@ -1159,11 +1164,11 @@ end
 			ToggleDropDownMenu(1, nil, PetFrameDropDown, "cursor", 0, 0)
 		end
 	end
-
+	------------------
 	function Sui_PetFrameDropDown_OnLoad()
 		UIDropDownMenu_Initialize(PetFrameDropDown, Sui_PetFrameDropDown_Initialize, "MENU")
 	end
-
+	------------------
 	function Sui_PetFrameDropDown_Initialize()
 		if ( UnitExists("pet") ) then
 			UnitPopup_ShowMenu(PetFrameDropDown, "PET", "pet")
@@ -1185,11 +1190,11 @@ end
 			ToggleDropDownMenu(1, nil, TargetFrameDropDown, "cursor", 0, 0)
 		end
 	end
-
+	------------------
 	function Sui_TargetFrameDropDown_OnLoad()
 		UIDropDownMenu_Initialize(TargetFrameDropDown, Sui_TargetFrameDropDown_Initialize, "MENU")
 	end
-
+	------------------
 	function Sui_TargetFrameDropDown_Initialize()
 		local menu
 		local name
@@ -1229,16 +1234,13 @@ end
 			ToggleDropDownMenu(1, nil, TargetFrameDropDown, "cursor", 0, 0)
 		end
 	end
-	-- Party Frames --
-	function Sui_PartyFrame_OnClick()
+	-- Party1 Frame --
+	function Sui_Party1Frame_OnClick()
 	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
 		SpellStopTargeting()
 		return
 	end
-	if ( not partyFrame ) then
-		partyFrame = this
-	end
-	local unit = "party"..partyFrame:GetID()
+	local unit = "party1"
 	if ( arg1 == "LeftButton" ) then
 		if ( SpellIsTargeting() ) then
 			SpellTargetUnit(unit)
@@ -1248,22 +1250,121 @@ end
 			TargetUnit(unit)
 		end
 	else
-			ToggleDropDownMenu(1, nil, getglobal("SUI_Party"..partyFrame:GetID().."_DropDown"), "cursor", 0, 0)
+			ToggleDropDownMenu(1, nil, SUI_Party1_DropDown, "cursor", 0, 0)
 		end
 	end
-
-	function Sui_PartyFrameDropDown_OnLoad()
-		UIDropDownMenu_Initialize(this, Sui_PartyFrameDropDown_Initialize, "MENU")
+	------------------
+	function Sui_Party1FrameDropDown_OnLoad()
+		UIDropDownMenu_Initialize(this, Sui_Party1FrameDropDown_Initialize, "MENU")
 	end
-
-	function Sui_PartyFrameDropDown_Initialize()
+	------------------
+	function Sui_Party1FrameDropDown_Initialize()
 		local dropdown
 		if ( UIDROPDOWNMENU_OPEN_MENU ) then
 			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
 		else
 			dropdown = this
 		end
-		UnitPopup_ShowMenu(dropdown, "PARTY", "party"..dropdown:GetParent():GetID())
+		UnitPopup_ShowMenu(dropdown, "PARTY", "party1")
+	end
+	-- Party2 Frame --
+	function Sui_Party2Frame_OnClick()
+	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
+		SpellStopTargeting()
+		return
+	end
+	local unit = "party2"
+	if ( arg1 == "LeftButton" ) then
+		if ( SpellIsTargeting() ) then
+			SpellTargetUnit(unit)
+		elseif ( CursorHasItem() ) then
+			DropItemOnUnit(unit)
+		else
+			TargetUnit(unit)
+		end
+	else
+			ToggleDropDownMenu(1, nil, SUI_Party2_DropDown, "cursor", 0, 0)
+		end
+	end
+	------------------
+	function Sui_Party2FrameDropDown_OnLoad()
+		UIDropDownMenu_Initialize(this, Sui_Party2FrameDropDown_Initialize, "MENU")
+	end
+	------------------
+	function Sui_Party2FrameDropDown_Initialize()
+		local dropdown
+		if ( UIDROPDOWNMENU_OPEN_MENU ) then
+			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
+		else
+			dropdown = this
+		end
+		UnitPopup_ShowMenu(dropdown, "PARTY", "party2")
+	end
+	-- Party3 Frame --
+	function Sui_Party3Frame_OnClick()
+	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
+		SpellStopTargeting()
+		return
+	end
+	local unit = "party3"
+	if ( arg1 == "LeftButton" ) then
+		if ( SpellIsTargeting() ) then
+			SpellTargetUnit(unit)
+		elseif ( CursorHasItem() ) then
+			DropItemOnUnit(unit)
+		else
+			TargetUnit(unit)
+		end
+	else
+			ToggleDropDownMenu(1, nil, SUI_Party3_DropDown, "cursor", 0, 0)
+		end
+	end
+	------------------
+	function Sui_Party3FrameDropDown_OnLoad()
+		UIDropDownMenu_Initialize(this, Sui_Party3FrameDropDown_Initialize, "MENU")
+	end
+	------------------
+	function Sui_Party3FrameDropDown_Initialize()
+		local dropdown
+		if ( UIDROPDOWNMENU_OPEN_MENU ) then
+			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
+		else
+			dropdown = this
+		end
+		UnitPopup_ShowMenu(dropdown, "PARTY", "party3")
+	end
+	-- Party4 Frame --
+	function Sui_Party4Frame_OnClick()
+	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
+		SpellStopTargeting()
+		return
+	end
+	local unit = "party4"
+	if ( arg1 == "LeftButton" ) then
+		if ( SpellIsTargeting() ) then
+			SpellTargetUnit(unit)
+		elseif ( CursorHasItem() ) then
+			DropItemOnUnit(unit)
+		else
+			TargetUnit(unit)
+		end
+	else
+			ToggleDropDownMenu(1, nil, SUI_Party4_DropDown, "cursor", 0, 0)
+		end
+	end
+	------------------
+	function Sui_Party4FrameDropDown_OnLoad()
+		UIDropDownMenu_Initialize(this, Sui_Party4FrameDropDown_Initialize, "MENU")
+	end
+	------------------
+	function Sui_Party4FrameDropDown_Initialize()
+		local dropdown
+		if ( UIDROPDOWNMENU_OPEN_MENU ) then
+			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
+		else
+			dropdown = this
+		end
+		UnitPopup_ShowMenu(dropdown, "PARTY", "party4")
 	end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Displays unit frame tooltips.						    |--

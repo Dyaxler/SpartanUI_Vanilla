@@ -30,8 +30,8 @@ Adapt = {
 	Version = 1.5, -- version
 	Textures = {}, -- table of textures models are replacing
 	Frequency = .25, -- time (in seconds) between camera refresh
-	xOffset = 2, -- x offset of model
-	yOffset = -4, -- y offset of model
+	xOffset = 0, -- x offset of model
+	yOffset = 0, -- y offset of model
 	StrataByIndex = { "PARENT", "BACKGROUND", "LOW", "MEDIUM", "HIGH", "DIALOG", "FULLSCREEN", "FULLSCREEN_DIALOG", "TOOLTIP"}, -- for strata guessing
 				-- OLD: "BACKGROUND","LOW","MEDIUM","HIGH","TOOLTIP" }, -- for strata guessing
 	StrataByName = { ["PARENT"]=1, ["BACKGROUND"]=2, ["LOW"]=3, ["MEDIUM"]=4, ["HIGH"]=5, ["DIALOG"]=6, ["FULLSCREEN"]=7, ["FULLSCREEN_DIALOG"]=8, ["TOOLTIP"]=9 }
@@ -46,6 +46,14 @@ function Adapt.CreateDefaults()
 		Shape = "CIRCLE",	-- "CIRCLE" or "SQUARE" stretched to whole texture or shrunk within
 		Backdrop = "ON",		-- "ON" or "OFF" whether background shows
 
+	Use = {
+		["SUI_Self_Portrait"] = 1,
+		["SUI_Target_Portrait"] = 1,
+		["SUI_Party1_Portrait"] = 1,
+		["SUI_Party2_Portrait"] = 1,
+		["SUI_Party3_Portrait"] = 1,
+		["SUI_Party4_Portrait"] = 1,
+		},
 	DontUse = {
 		["SUI_XP_Portrait"] = 1,
 		["SUI_TOT_Portrait"] = 1,
@@ -67,7 +75,7 @@ function Adapt.newSetPortraitTexture(texture,unit)
 		local xpos = texture:GetLeft()
 		local ypos = texture:GetTop()
 
-		if textureName and xpos and ypos and UnitExists(unit) and not Adapt_Settings.DontUse[textureName] then
+		if textureName and xpos and ypos and UnitExists(unit) and Adapt_Settings.Use[textureName] and not Adapt_Settings.DontUse[textureName] then
 
 			if(UnitIsVisible(unit)) then
 				local width=texture:GetRight()-xpos
@@ -148,7 +156,7 @@ function Adapt.CreateModel(texture)
 		frame.backLayer:Hide()
 	end
 	frame.modelLayer = CreateFrame("PlayerModel",modelName.."Model",texture:GetParent())
-	frame.modelLayer:SetPoint("CENTER",frame,"CENTER",-2,4)
+	frame.modelLayer:SetPoint("CENTER",frame,"CENTER",0,0)
 	frame.modelLayer:SetFrameLevel(1)
 	frame.modelLayer:SetScript("OnShow",function() this:SetCamera(0) end)
 	Adapt.Shape(textureName)
@@ -164,6 +172,16 @@ function Adapt.OnLoad(arg1)
 end
 
 function Adapt.OnEvent(arg1)
+	if not Adapt_Settings.Use then
+		Adapt_Settings.Use = {
+		["SUI_Self_Portrait"] = 1,
+		["SUI_Target_Portrait"] = 1,
+		["SUI_Party1_Portrait"] = 1,
+		["SUI_Party2_Portrait"] = 1,
+		["SUI_Party3_Portrait"] = 1,
+		["SUI_Party4_Portrait"] = 1,
+		}
+	end
 	if not Adapt_Settings.DontUse then
 		-- default ToT has the perl epilepsy problem of constantly going back to first frame
 		Adapt_Settings.DontUse = {
@@ -207,14 +225,18 @@ function Adapt.SlashHandler(msg)
 		Adapt_Settings.Shape = "CIRCLE"
 		Adapt.Reshape()
 	elseif msg=="backdrop" then
-		Adapt_Settings.Backdrop = Adapt_Settings.Back=="ON" and "OFF" or "ON"
-		Adapt.Reback()
+		--Adapt_Settings.Backdrop = Adapt_Settings.Back=="ON" and "OFF" or "ON"
+		--Adapt.Reback()
 	elseif msg=="refresh" then
 		Adapt.Reshape()
 		Adapt.Reback()
 	elseif msg=="list" then
 		DEFAULT_CHAT_FRAME:AddMessage("|cFF11FF11__ Frames not animated __")
 		local count = 0
+		for i in Adapt_Settings.Use do
+			count = count + 1
+			DEFAULT_CHAT_FRAME:AddMessage(i)
+		end
 		for i in Adapt_Settings.DontUse do
 			count = count + 1
 			DEFAULT_CHAT_FRAME:AddMessage(i)
@@ -302,19 +324,19 @@ function Adapt.Shape(i)
 		back:SetTexCoord(.2,.8,.2,.8)
 		back:ClearAllPoints()
 		back:SetPoint("TOPLEFT",i,"TOPLEFT")
-		back:SetPoint("BOTTOMRIGHT",i,"BOTTOMRIGHT",Adapt.xOffset,Adapt.yOffset)
+		back:SetPoint("BOTTOMRIGHT",i,"BOTTOMRIGHT",0,0)
 		model:ClearAllPoints()
 		model:SetPoint("TOPLEFT",i,"TOPLEFT")
-		model:SetPoint("BOTTOMRIGHT",i,"BOTTOMRIGHT",Adapt.xOffset,Adapt.yOffset)
+		model:SetPoint("BOTTOMRIGHT",i,"BOTTOMRIGHT",0,0)
 	else
 		back:SetTexCoord(0,1,0,1)
 		back:ClearAllPoints()
-		back:SetPoint("CENTER",i,"CENTER",Adapt.xOffset,Adapt.yOffset)
+		back:SetPoint("CENTER",i,"CENTER",0,0)
 		back:SetWidth(width)
 		back:SetHeight(height)
 		model:ClearAllPoints()
 		model:SetPoint("CENTER",i,"CENTER",Adapt.xOffset,Adapt.yOffset)
-		model:SetWidth(width*.75)
-		model:SetHeight(height*.75)
+		model:SetWidth(width*1)
+		model:SetHeight(height*1)
 	end
 end
