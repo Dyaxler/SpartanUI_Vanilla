@@ -1171,16 +1171,18 @@ function Sui_BarFix()
 		SUI_Bar4_BG:Hide()
 	end
 	-- Left Square Action Bar
-	if (suiData.leftbackdrop == "on") then
-		Bar5:ClearAllPoints()
-		Bar5:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOM", -636, 7)
+	if Bar5 then
+		if (suiData.leftbackdrop == "on") then
+			Bar5:ClearAllPoints()
+			Bar5:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOM", -636, 7)
 
-		SUI_Bar5_BG:ClearAllPoints()
-		SUI_Bar5_BG:Show()
-		SUI_Bar5_BG:SetPoint("CENTER", "Bar5", "CENTER", 0, 0)
-		Bar5:SetParent(Bartender_Plate)
-	elseif (suiData.leftbackdrop == "off") then
-		SUI_Bar5_BG:Hide()
+			SUI_Bar5_BG:ClearAllPoints()
+			SUI_Bar5_BG:Show()
+			SUI_Bar5_BG:SetPoint("CENTER", "Bar5", "CENTER", 0, 0)
+			Bar5:SetParent(Bartender_Plate)
+		elseif (suiData.leftbackdrop == "off") then
+			SUI_Bar5_BG:Hide()
+		end
 	end
 -----------------------------------------------------------------------------------------------
 --| In WoW 2.0+ Bartender3 had 6 available action bars. Bags, Stance, Pet, and Menu have    |--
