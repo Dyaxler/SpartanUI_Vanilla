@@ -1,5 +1,14 @@
 -------------------------------------------------------------------------------------------------------------------------------
 
+v0.9.6:
+* Added the ability to hide/show the (leftbackground & Bar5). New command /spartanui leftbackground hide or /spartanui leftbackground show
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+v0.9.5:
+* Fixed an issue with the Popup bars. There was a bug that prevented you from always showing the bars so the "off" setting was broken.
+-------------------------------------------------------------------------------------------------------------------------------
+
 v0.9.4:
 * Fixed an issue with users not able to individually select party members. This also affected the RightClick menu and cast macros.
 * Added a /sui menu toggle to disable AutoUI Resize for those users who are running in a resolution lower than 1920 x 1080 (Wide).

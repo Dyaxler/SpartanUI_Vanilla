@@ -27,6 +27,7 @@ function Sui_InitializeVariables(protectVars)
 		[7] = { "broadcastToggle" },
 		[8] = { "rightbackdrop" },
 		[9] = { "autoresToggle" },
+		[10] = { "leftbackdrop" },
 	}
 	if protectVars then
 		while protectedVars[i] and protectedVars[i][1] do
@@ -83,6 +84,7 @@ function Sui_InitializeVariables(protectVars)
 		broadcastToggle = "on",
 		autoresToggle = "on",
 		rightbackdrop = "on",
+		leftbackdrop = "on",
 		PartyInRaid = "off",
 		layout = "Standard",
 		raidIcons = "Default",
@@ -598,6 +600,19 @@ function Sui_SlashCommand(msg)
 			SUI_Bar6_BG:Show()
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Right back drop on.", 0.5, 0.5, 0.5)
 		end
+	elseif msg=="leftbackdrop" then							-- on by default
+		if arg1=="off" then
+			suiData.leftbackdrop = "off"
+			SUI_Bar5_BG:Hide()
+			Bartender:ToggleBar("Bar5")
+			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Left back drop off.", 0.5, 0.5, 0.5)
+		elseif arg1=="on" then
+			suiData.leftbackdrop = "on"
+			SUI_Bar5_BG:Show()
+			Bartender:ToggleBar("Bar5")
+			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Left back drop on.", 0.5, 0.5, 0.5)
+			ReloadUI()
+		end
 	end
 end
 -----------------------------------------------------------------------------------------------
@@ -913,93 +928,184 @@ end
 --|  Purpose:	Stored layout for SpartanUI.  Runs after load screen every time.	    |--
 -----------------------------------------------------------------------------------------------
 function Sui_Bartender()
-	Bartender:SetProfile("SpartanUI_"..SUI_currentVersion)
-	local CustomConfig = {
-		Extra = {
-			EnableAllBars = true,
-			Clamp = false,
-			HideBorder = true,
-			BonusNoSwap = false,
-			StickyFrames = false,
-			HideTooltip = false,
-		},
-		Bar1 = {
-			Scale = .8,
-			Padding = 6,
-			Rows = 1,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar2 = {
-			Scale = .8,
-			Padding = 6,
-			Rows = 1,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar3 = {
-			Scale = .8,
-			Padding = 6,
-			Rows = 1,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar4 = {
-			Scale = .8,
-			Padding = 6,
-			Rows = 1,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar5 = {
-			Scale = .8,
-			Padding = 4,
-			Rows = 3,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar6 = {
-			Scale = .9,
-			Padding = 0,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar7 = {
-			Scale = .9,
-			Padding = 0,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar8 = {
-			Scale = .7,
-			Padding = 0,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-		Bar9 = {
-			Scale = .8,
-			Padding = 0,
-			Swap = false,
-			Alpha = 1,
-			Hide = false,
-		},
-	}
-	local db = Bartender.db.profile
-	if not db.CustomUI then
-		db.CustomUI = true
-		tblMerge(CustomConfig, db)
+	if (suiData.leftbackdrop == "on") then
+		Bartender:SetProfile("SpartanUI_"..SUI_currentVersion)
+		local CustomConfig = {
+			Extra = {
+				EnableAllBars = true,
+				Clamp = false,
+				HideBorder = true,
+				BonusNoSwap = false,
+				StickyFrames = false,
+				HideTooltip = false,
+			},
+			Bar1 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar2 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar3 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar4 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar5 = {
+				Scale = .8,
+				Padding = 4,
+				Rows = 3,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar6 = {
+				Scale = .9,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar7 = {
+				Scale = .9,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar8 = {
+				Scale = .7,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar9 = {
+				Scale = .8,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+		}
+		local db = Bartender.db.profile
+		if not db.CustomUI then
+			db.CustomUI = true
+			tblMerge(CustomConfig, db)
+		end
+		Bartender:OnProfileEnable()
+		-- Added fix for zone/instance loading issue
+		Bartender:EnableAllBars()
 	end
-	Bartender:OnProfileEnable()
-	-- Added fix for zone/instance loading issue
-	Bartender:EnableAllBars()
+	if (suiData.leftbackdrop == "off") then
+		Bartender:SetProfile("SpartanUI_"..SUI_currentVersion)
+		local CustomConfig = {
+			Extra = {
+				EnableAllBars = true,
+				Clamp = false,
+				HideBorder = true,
+				BonusNoSwap = false,
+				StickyFrames = false,
+				HideTooltip = false,
+			},
+			Bar1 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar2 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar3 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar4 = {
+				Scale = .8,
+				Padding = 6,
+				Rows = 1,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar5 = {
+				Scale = .8,
+				Padding = 4,
+				Rows = 3,
+				Swap = false,
+				Alpha = 1,
+				Hide = true,
+			},
+			Bar6 = {
+				Scale = .9,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar7 = {
+				Scale = .9,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar8 = {
+				Scale = .7,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+			Bar9 = {
+				Scale = .8,
+				Padding = 0,
+				Swap = false,
+				Alpha = 1,
+				Hide = false,
+			},
+		}
+		local db = Bartender.db.profile
+		if not db.CustomUI then
+			db.CustomUI = true
+			tblMerge(CustomConfig, db)
+		end
+		Bartender:OnProfileEnable()
+		-- Added fix for zone/instance loading issue
+		Bartender:EnableAllBars()
+	end
 end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Bartender re-anchors its frames after each setup.  This detaches them and   |--
@@ -1064,7 +1170,7 @@ function Sui_BarFix()
 		SUI_Bar4_BG:Hide()
 	end
 	-- Left Square Action Bar
-	if Bar5 then
+	if (suiData.leftbackdrop == "on") then
 		Bar5:ClearAllPoints()
 		Bar5:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOM", -636, 7)
 
@@ -1072,7 +1178,7 @@ function Sui_BarFix()
 		SUI_Bar5_BG:Show()
 		SUI_Bar5_BG:SetPoint("CENTER", "Bar5", "CENTER", 0, 0)
 		Bar5:SetParent(Bartender_Plate)
-	else
+	elseif (suiData.leftbackdrop == "off") then
 		SUI_Bar5_BG:Hide()
 	end
 -----------------------------------------------------------------------------------------------
