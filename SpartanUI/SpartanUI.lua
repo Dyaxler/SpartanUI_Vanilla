@@ -3841,17 +3841,24 @@ function Sui_OnUpdate(arg1)
 			elseif (suiData.FrameAdvance > 5) then
 				SUI_XP_Increase:Hide()
 			end
-			if MouseIsOver(SUI_PopLeft_Hit, 0, 0, 0, 0) == 1 then
+			if suiData.popUps == "on" then
+				if MouseIsOver(SUI_PopLeft_Hit, 0, 0, 0, 0) == 1 then
+					SUI_BarPoppupLeft_Top:Hide()
+					SUI_PopLeft_Hit:Hide()
+				elseif MouseIsOver(SUI_PopRight_Hit, 0, 0, 0, 0) == 1 then
+					SUI_BarPoppupRight_Top:Hide()
+					SUI_PopRight_Hit:Hide()
+				else
+					SUI_BarPoppupLeft_Top:Show()
+					SUI_PopLeft_Hit:Show()
+					SUI_BarPoppupRight_Top:Show()
+					SUI_PopRight_Hit:Show()
+				end
+			elseif suiData.popUps == "off" then
 				SUI_BarPoppupLeft_Top:Hide()
 				SUI_PopLeft_Hit:Hide()
-			elseif MouseIsOver(SUI_PopRight_Hit, 0, 0, 0, 0) == 1 then
 				SUI_BarPoppupRight_Top:Hide()
 				SUI_PopRight_Hit:Hide()
-			else
-				SUI_BarPoppupLeft_Top:Show()
-				SUI_PopLeft_Hit:Show()
-				SUI_BarPoppupRight_Top:Show()
-				SUI_PopRight_Hit:Show()
 			end
 		end
 		--|  CastBar animation  |--
