@@ -1,5 +1,10 @@
 -------------------------------------------------------------------------------------------------------------------------------
 
+v0.9.6.1:
+* Possible fix for an issue with the BuffToggle. When off the Target frame seems to not update properly. Removed some code that wasn't needed in the BuffToggle checks.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
 v0.9.6:
 * Added the ability to hide/show the (leftbackground & Bar5). New command /spartanui leftbackground hide or /spartanui leftbackground show
 

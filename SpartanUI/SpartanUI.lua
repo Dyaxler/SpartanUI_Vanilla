@@ -2254,8 +2254,6 @@ function Sui_SetupMembers_Subtask(toon, task, toonID, frame, englishClass)
 				end
 				if suiData.buffToggle == "on" then
 					SUI_Self_Buffs:SetPoint("BOTTOMRIGHT", SUI_Self_Button, "TOPRIGHT", 40, 70)
-				elseif suiData.buffToggle == "off" then
-					return
 				end
 			else
 				if toonID>=3 and toonID<=6 then -- party members
@@ -2279,8 +2277,6 @@ function Sui_SetupMembers_Subtask(toon, task, toonID, frame, englishClass)
 			Sui_Unit_UpdateAFK_Subtask(suiData.unit[toonID].unit, toonID)
 			if suiData.buffToggle == "on" then
 				Sui_BuffScan(toon)
-			elseif suiData.buffToggle == "off" then
-				return
 			end
 		elseif toon ~= "player" and toon ~= "target" then
 			getglobal(frame.."Frame"):Hide()
@@ -2288,8 +2284,6 @@ function Sui_SetupMembers_Subtask(toon, task, toonID, frame, englishClass)
 			-- Reset location of buffs
 			if toon == "pet" and suiData.buffToggle == "on" then
 				SUI_Self_Buffs:SetPoint("BOTTOMRIGHT", SUI_Self_Button, "TOPRIGHT", 15, 20)
-			elseif suiData.buffToggle == "off" then
-				return
 			end
 		elseif toon == "target" then
 			getglobal(frame.."Frame"):Hide()
@@ -2303,8 +2297,6 @@ function Sui_SetupMembers_Subtask(toon, task, toonID, frame, englishClass)
 		Sui_PowerMath(toon, suiData.unit[toonID].powerbar_width, suiData.unit[toonID].powerbar_height, frame)
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan(toon)
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	end
 end
@@ -2329,8 +2321,6 @@ function Sui_UpdatePartyVisibility()
 	end
 	if suiData.buffToggle == "on" then
 		Sui_BuffScan(arg1)
-	elseif suiData.buffToggle == "off" then
-		return
 	end
 	PartyMemberFrame1:UnregisterAllEvents()
 	PartyMemberFrame1:Hide()
@@ -3516,14 +3506,10 @@ function Sui_OnEvent(event)
 			elseif arg2 == "ENCHANT_REMOVED" and arg7 == (UnitName("player")) then
 				Sui_BuffScan("player", 1)
 			end
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "UNIT_AURA" then
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan(arg1)
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "UNIT_LEVEL" then
 		local toonID = Sui_DeriveUnit(arg1, "number", 8)
@@ -3552,8 +3538,6 @@ function Sui_OnEvent(event)
 		Sui_Pet_UpdateHappiness()
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan("pet")
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "UNIT_PET" then
 		if SUI_Pet_Name:GetText() == "Unknown" then
@@ -3563,8 +3547,6 @@ function Sui_OnEvent(event)
 		Sui_Pet_UpdateHappiness()
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan("pet")
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "UNIT_PORTRAIT_UPDATE" then
 		local toonID = Sui_DeriveUnit(arg1, "number", 8)
@@ -3590,8 +3572,6 @@ function Sui_OnEvent(event)
 	elseif event == "PLAYER_AURAS_CHANGED" then
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan(arg1)
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "PARTY_MEMBERS_CHANGED" or event == "PARTY_LEADER_CHANGED" then
 		Sui_SetupMembers("all", "setup")
@@ -3602,8 +3582,6 @@ function Sui_OnEvent(event)
 		Sui_Unit_Update()
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan("party1")
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "PARTY_LOOT_METHOD_CHANGED" then
 		Sui_Unit_Update()
@@ -3611,8 +3589,6 @@ function Sui_OnEvent(event)
 		Sui_Unit_Update()
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan(arg1)
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "PLAYER_COMBO_POINTS" then
 		Sui_UpdateComboPoints()
@@ -3656,8 +3632,6 @@ function Sui_OnEvent(event)
 		FramerateText:SetFontObject(SUI_FontLevel)
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan(arg1)
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 		Sui_ManageFrames()
 		Sui_Bags()
@@ -3707,8 +3681,6 @@ function Sui_OnEvent(event)
 		suiData.lastTarget_checked = 0
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan("target")
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 		SUI_MouseTooltip_Text:SetText("Not available.")
 		if not UnitAffectingCombat("target") then
@@ -3734,8 +3706,6 @@ function Sui_OnEvent(event)
 		Sui_UpdatePartyVisibility()
 		if suiData.buffToggle == "on" then
 			Sui_BuffScan(arg1)
-		elseif suiData.buffToggle == "off" then
-			return
 		end
 	elseif event == "RAID_TARGET_UPDATE" then
 		Sui_RaidIcon()
