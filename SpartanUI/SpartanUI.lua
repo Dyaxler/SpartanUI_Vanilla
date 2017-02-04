@@ -703,80 +703,82 @@ end
 --|  Purpose:	Repositions bags for HUD offset.					    |--
 -----------------------------------------------------------------------------------------------
 function Sui_Bags()
-	-- Global Settings
-	VISIBLE_CONTAINER_SPACING = 3
-	CONTAINER_OFFSET_Y = 170
-	CONTAINER_OFFSET_X = 20
-	CONTAINER_SCALE = 0.90
-	-- Adjust the start anchor for bags
-	local shrinkFrames, frame;
-	local xOffset = CONTAINER_OFFSET_X;
-	local yOffset = CONTAINER_OFFSET_Y;
-	local screenHeight = GetScreenHeight();
-	local containerScale = CONTAINER_SCALE;
-	local freeScreenHeight = screenHeight - yOffset;
-	local index = 1;
-	local column = 0;
-	local uiScale = 1;
-	if ( GetCVar("useUiScale") == "1" ) then
-		uiScale = GetCVar("uiscale") + 0;
-		if ( uiScale > containerScale ) then
-			containerScale = uiScale * containerScale;
-		end
-	end
-	while ContainerFrame1.bags[index] do
-		frame = getglobal(ContainerFrame1.bags[index]);
-		ContainerFrame1:ClearAllPoints()
-		frame:SetScale(1);
-		-- freeScreenHeight determines when to start a new column of bags
-		if ( index == 1 ) then
-			-- First bag
-			frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -xOffset, yOffset );
-		elseif ( freeScreenHeight < frame:GetHeight() ) then
-			-- Start a new column
-			column = column + 1;
-			freeScreenHeight = screenHeight - yOffset;
-			frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -(column * CONTAINER_WIDTH) - xOffset, yOffset );
-		else
-			-- Anchor to the previous bag
-			frame:SetPoint("BOTTOMRIGHT", ContainerFrame1.bags[index - 1], "TOPRIGHT", 0, CONTAINER_SPACING);
-		end
-		if ( frame:GetLeft() < ( BankFrame:GetRight() - 45 ) ) then
-			if ( frame:GetTop() > ( BankFrame:GetBottom() + 50 ) ) then
-				shrinkFrames = 1;
-				break;
-			end
-		end
-		freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING;
-		index = index + 1;
-	end
-	if ( shrinkFrames ) then
-		screenHeight = screenHeight / containerScale;
-		xOffset = xOffset / containerScale;
-		yOffset = yOffset / containerScale;
-		freeScreenHeight = screenHeight - yOffset;
-		index = 1;
-		column = 0;
-		while ContainerFrame1.bags[index] do
-			frame = getglobal(ContainerFrame1.bags[index]);
-			ContainerFrame1:ClearAllPoints()
-			frame:SetScale(containerScale);
-			if ( index == 1 ) then
-				-- First bag
-				frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -xOffset, yOffset );
-			elseif ( freeScreenHeight < frame:GetHeight() ) then
-				-- Start a new column
-				column = column + 1;
-				freeScreenHeight = screenHeight - yOffset;
-				frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -(column * CONTAINER_WIDTH) - xOffset, yOffset );
-			else
-				-- Anchor to the previous bag
-				frame:SetPoint("BOTTOMRIGHT", ContainerFrame1.bags[index - 1], "TOPRIGHT", 0, CONTAINER_SPACING);
-			end
-			freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING;
-			index = index + 1;
-		end
-	end
+    if not IsAddOnLoaded("BlizzMo") then
+        -- Global Settings
+        VISIBLE_CONTAINER_SPACING = 3
+        CONTAINER_OFFSET_Y = 170
+        CONTAINER_OFFSET_X = 20
+        CONTAINER_SCALE = 0.90
+        -- Adjust the start anchor for bags
+        local shrinkFrames, frame;
+        local xOffset = CONTAINER_OFFSET_X;
+        local yOffset = CONTAINER_OFFSET_Y;
+        local screenHeight = GetScreenHeight();
+        local containerScale = CONTAINER_SCALE;
+        local freeScreenHeight = screenHeight - yOffset;
+        local index = 1;
+        local column = 0;
+        local uiScale = 1;
+        if ( GetCVar("useUiScale") == "1" ) then
+            uiScale = GetCVar("uiscale") + 0;
+            if ( uiScale > containerScale ) then
+                containerScale = uiScale * containerScale;
+            end
+        end
+        while ContainerFrame1.bags[index] do
+            frame = getglobal(ContainerFrame1.bags[index]);
+            ContainerFrame1:ClearAllPoints()
+            frame:SetScale(1);
+            -- freeScreenHeight determines when to start a new column of bags
+            if ( index == 1 ) then
+                -- First bag
+                frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -xOffset, yOffset );
+            elseif ( freeScreenHeight < frame:GetHeight() ) then
+                -- Start a new column
+                column = column + 1;
+                freeScreenHeight = screenHeight - yOffset;
+                frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -(column * CONTAINER_WIDTH) - xOffset, yOffset );
+            else
+                -- Anchor to the previous bag
+                frame:SetPoint("BOTTOMRIGHT", ContainerFrame1.bags[index - 1], "TOPRIGHT", 0, CONTAINER_SPACING);
+            end
+            if ( frame:GetLeft() < ( BankFrame:GetRight() - 45 ) ) then
+                if ( frame:GetTop() > ( BankFrame:GetBottom() + 50 ) ) then
+                    shrinkFrames = 1;
+                    break;
+                end
+            end
+            freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING;
+            index = index + 1;
+        end
+        if ( shrinkFrames ) then
+            screenHeight = screenHeight / containerScale;
+            xOffset = xOffset / containerScale;
+            yOffset = yOffset / containerScale;
+            freeScreenHeight = screenHeight - yOffset;
+            index = 1;
+            column = 0;
+            while ContainerFrame1.bags[index] do
+                frame = getglobal(ContainerFrame1.bags[index]);
+                ContainerFrame1:ClearAllPoints()
+                frame:SetScale(containerScale);
+                if ( index == 1 ) then
+                    -- First bag
+                    frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -xOffset, yOffset );
+                elseif ( freeScreenHeight < frame:GetHeight() ) then
+                    -- Start a new column
+                    column = column + 1;
+                    freeScreenHeight = screenHeight - yOffset;
+                    frame:SetPoint("BOTTOMRIGHT", "SpartanUI", "BOTTOMRIGHT", -(column * CONTAINER_WIDTH) - xOffset, yOffset );
+                else
+                    -- Anchor to the previous bag
+                    frame:SetPoint("BOTTOMRIGHT", ContainerFrame1.bags[index - 1], "TOPRIGHT", 0, CONTAINER_SPACING);
+                end
+                freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING;
+                index = index + 1;
+            end
+        end
+    end
 end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Hooked Blizz code. Moves items like the quest frame to fit the new layout   |--
