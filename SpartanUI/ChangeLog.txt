@@ -1,5 +1,11 @@
 -------------------------------------------------------------------------------------------------------------------------------
 
+v0.9.6.2:
+* Fixed an issue with the left and right back drops not staying hidden after a relog or reloadui
+* Added support for 2K Ultra Wide Monitors (3440 x 1440)
+
+-------------------------------------------------------------------------------------------------------------------------------
+
 v0.9.6.1:
 * Possible fix for an issue with the BuffToggle. When off the Target frame seems to not update properly. Removed some code that wasn't needed in the BuffToggle checks.
 

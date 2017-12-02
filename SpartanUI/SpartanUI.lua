@@ -387,17 +387,19 @@ function Sui_Setup()
 	Sui_MinimapFix()
 	if suiData.autoresToggle == "on" then
 		Sui_ResDetect()
-	elseif suiData.autoresToggle == "off" then
-		return
 	end
-	if suiData.popUps == "on" then
-		SUI_PopLeft_Hit:Show()
-		SUI_PopRight_Hit:Show()
-	elseif suiData.popUps == "off" then
+	if suiData.popUps == "off" then
 		SUI_PopLeft_Hit:Hide()
 		SUI_PopRight_Hit:Hide()
-	end
-	if not ClickCastFrames then ClickCastFrames = {} end
+    end
+    if suiData.rightbackdrop == "off" then
+    	SUI_Bar6_BG:Hide()
+    end
+    if suiData.leftbackdrop == "off" then
+		SUI_Bar5_BG:Hide()
+		Bartender:ToggleBar("Bar5")
+    end
+    if not ClickCastFrames then ClickCastFrames = {} end
 	ClickCastFrames[SUI_Self_Button] = true
 	ClickCastFrames[SUI_Target_Button] = true
 	ClickCastFrames[SUI_Party1_Button] = true
@@ -425,7 +427,7 @@ function Sui_SlashCommand(msg)
 		Sui_ResDetect()
 	elseif msg == "autores" then								-- on by default
 		if arg1=="on" then
-			suiData.autoresToggle = "on"
+			suiData.autoresToggle = "on"        
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: AutoUI Resize on - Please reload your UI.", 0.5, 0.5, 0.5)
 		elseif arg1=="off" then
 			suiData.autoresToggle = "off"
@@ -3295,26 +3297,27 @@ function Sui_ResDetect()
 	local resolution = ({GetScreenResolutions()})[GetCurrentResolution()]
 	local _, _, x, y = string.find(resolution, "(%d+)x(%d+)")
 	local ratio = tonumber(x) / tonumber(y)
-
-	-- For Standard 16:9 Widescreen (1920 x 1080 etc.)
+-- For Standard 16:9 Screens (1920 x 1080 etc.)
 	if ratio < 1.8 and GetCVar("useUiScale") == "1" then
-		SetCVar("uiScale", "0.75")
+		SetCVar("uiScale", "0.74")
 		suiData.scale = .80
-
 	elseif ratio < 1.8 and GetCVar("useUiScale") == "0" then
-		SetCVar("uiScale", "0.75")
-		suiData.scale = .64
-
-	-- for Ultra 21:9 Widescreen (2560 x 1080 etc.)
-	elseif ratio > 2.3 and GetCVar("useUiScale") == "1" then
-		SetCVar("uiScale", "0.75")
-		suiData.scale = .95
-
-	elseif ratio > 2.3 and GetCVar("useUiScale") == "0" then
-		SetCVar("uiScale", "0.75")
+		suiData.scale = .70
+-- for Ultrawide 21:9 Screens (2560 x 1080 etc.)
+	elseif ratio < 2.38 and GetCVar("useUiScale") == "1" then
+		SetCVar("uiScale", "0.84")
+		suiData.scale = .90
+	elseif ratio < 2.38 and GetCVar("useUiScale") == "0" then
 		suiData.scale = .80
+-- for 2K Ultrawide 21:9 Screens (3440 x 1440 etc.)
+	elseif ratio > 2.38 and GetCVar("useUiScale") == "1" then
+		SetCVar("uiScale", "0.70")
+		suiData.scale = .80
+	elseif ratio > 2.38 and GetCVar("useUiScale") == "0" then
+		suiData.scale = .70
 	end
 	SpartanUI:SetScale(suiData.scale)
+	DEFAULT_CHAT_FRAME:AddMessage("SpartanUI Autores Setting - uiScale: "..GetCVar("uiScale").." | suiScale: "..suiData.scale, 0.65, 0.65, 0.65)
 end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	For simple warning messages.						    |--

@@ -17,10 +17,22 @@
 				<Anchor point="BOTTOM" relativeTo="SpartanUI" relativePoint="BOTTOM" />
 			</Anchors>
 			<Size>
-				<AbsDimension x="2560" y="153" />
+				<AbsDimension x="3440" y="153" />
 			</Size>
 			<Layers>
 				<Layer level="BACKGROUND">
+					<Texture name="HUD_1a" file="Interface\AddOns\SpartanUI\Textures\HUD_1a">
+						<Size>
+							<AbsDimension x="512" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="-1280" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
 					<Texture name="HUD_1" file="Interface\AddOns\SpartanUI\Textures\HUD_1">
 						<Size>
 							<AbsDimension x="512" y="256" />
@@ -77,6 +89,18 @@
 							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
 								<Offset>
 									<AbsDimension x="768" y="0" />
+								</Offset>
+							</Anchor>
+						</Anchors>
+					</Texture>
+					<Texture name="HUD_6" file="Interface\AddOns\SpartanUI\Textures\HUD_6">
+						<Size>
+							<AbsDimension x="512" y="256" />
+						</Size>
+						<Anchors>
+							<Anchor point="BOTTOMLEFT" relativePoint="BOTTOM">
+								<Offset>
+									<AbsDimension x="1280" y="0" />
 								</Offset>
 							</Anchor>
 						</Anchors>
