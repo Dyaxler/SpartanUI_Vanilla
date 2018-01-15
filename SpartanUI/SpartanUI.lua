@@ -19,15 +19,16 @@ function Sui_InitializeVariables(protectVars)
 	local i, curVar, varKind = 1
 	local protectedVars = {
 		[1] = { "buffToggle" },
-		[2] = { "partyToggle" },
-		[3] = { "scale" },
-		[4] = { "popUps" },
-		[5] = { "raidIcons" },
-		[6] = { "PartyInRaid" },
-		[7] = { "broadcastToggle" },
-		[8] = { "rightbackdrop" },
-		[9] = { "autoresToggle" },
-		[10] = { "leftbackdrop" },
+        [2] = { "playerbuffToggle" },
+		[3] = { "partyToggle" },
+		[4] = { "scale" },
+		[5] = { "popUps" },
+		[6] = { "raidIcons" },
+		[7] = { "PartyInRaid" },
+		[8] = { "broadcastToggle" },
+		[9] = { "rightbackdrop" },
+		[10] = { "autoresToggle" },
+		[11] = { "leftbackdrop" },
 	}
 	if protectVars then
 		while protectedVars[i] and protectedVars[i][1] do
@@ -80,6 +81,7 @@ function Sui_InitializeVariables(protectVars)
 		scale = .87,
 		popUps = "on",
 		buffToggle = "on",
+        playerbuffToggle = "on",
 		partyToggle = "on",
 		broadcastToggle = "on",
 		autoresToggle = "on",
@@ -536,6 +538,16 @@ function Sui_SlashCommand(msg)
 			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Buffs on - Please reload your UI.", 0.5, 0.5, 0.5)
 			ReloadUI()
 		end
+	elseif msg=="playerbuff" or msg=="playerbuffs" then							-- on by default
+		if arg1=="off" then
+			suiData.playerbuffToggle = "off"
+			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Player Buffs off - Please reload your UI.", 0.5, 0.5, 0.5)
+			ReloadUI()
+		elseif arg1=="on" then
+			suiData.playerbuffToggle = "on"
+			DEFAULT_CHAT_FRAME:AddMessage("SpartanUI: Player Buffs on - Please reload your UI.", 0.5, 0.5, 0.5)
+			ReloadUI()
+		end
 	elseif msg == "broadcast" then								-- on by default
 		if arg1=="on" then
 			suiData.broadcastToggle = "on"
@@ -639,7 +651,8 @@ function Sui_HelpMenu(msg)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffleftbackdrop|r |c0000ffc0on*/off|r (Left back ground and Bar5 will be shown/hidden)", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffparty|r |c0000ffc0on*/off|r (Party frames)", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffpartyinraid|r |c0000ffc0on/off*|r (Party frames while in raid)", 0.75, 0.75, 0.75)
-		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffbuff|r (or buffs) |c0000ffc0on*/off|r (SUI buffs)", 0.75, 0.75, 0.75)
+		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffbuff|r (or buffs) |c0000ffc0on*/off|r (All buff frames)", 0.75, 0.75, 0.75)
+		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffplayerbuff|r (or playerbuffs) |c0000ffc0on/off*|r (Player buff frames)", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("--------------------------------------------------", 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0ffAvailable languages:|r " .. (SUIL.AVAILABLE_LANGUAGES[1]), 0.75, 0.75, 0.75)
 		DEFAULT_CHAT_FRAME:AddMessage("|c0000c0fflang|r |c0000ffc0X|r (Switch language to...)", 0.75, 0.75, 0.75)
@@ -1349,135 +1362,71 @@ end
 	end
 	-- Party1 Frame --
 	function Sui_Party1Frame_OnClick()
-	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
-		SpellStopTargeting()
-		return
-	end
-	local unit = "party1"
-	if ( arg1 == "LeftButton" ) then
-		if ( SpellIsTargeting() ) then
-			SpellTargetUnit(unit)
-		elseif ( CursorHasItem() ) then
-			DropItemOnUnit(unit)
-		else
-			TargetUnit(unit)
+        if ( SpellIsTargeting() and arg1 == "RightButton" ) then
+            SpellStopTargeting()
+            return
+        end
+        local unit = "party1"
+        if ( arg1 == "LeftButton" ) then
+            if ( SpellIsTargeting() ) then
+                SpellTargetUnit(unit)
+            elseif ( CursorHasItem() ) then
+                DropItemOnUnit(unit)
+            else
+                TargetUnit(unit)
+            end
 		end
-	else
-			ToggleDropDownMenu(1, nil, SUI_Party1_DropDown, "cursor", 0, 0)
-		end
-	end
-	------------------
-	function Sui_Party1FrameDropDown_OnLoad()
-		UIDropDownMenu_Initialize(this, Sui_Party1FrameDropDown_Initialize, "MENU")
-	end
-	------------------
-	function Sui_Party1FrameDropDown_Initialize()
-		local dropdown
-		if ( UIDROPDOWNMENU_OPEN_MENU ) then
-			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
-		else
-			dropdown = this
-		end
-		UnitPopup_ShowMenu(dropdown, "PARTY", "party1")
 	end
 	-- Party2 Frame --
 	function Sui_Party2Frame_OnClick()
-	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
-		SpellStopTargeting()
-		return
-	end
-	local unit = "party2"
-	if ( arg1 == "LeftButton" ) then
-		if ( SpellIsTargeting() ) then
-			SpellTargetUnit(unit)
-		elseif ( CursorHasItem() ) then
-			DropItemOnUnit(unit)
-		else
-			TargetUnit(unit)
+        if ( SpellIsTargeting() and arg1 == "RightButton" ) then
+            SpellStopTargeting()
+            return
+        end
+        local unit = "party2"
+        if ( arg1 == "LeftButton" ) then
+            if ( SpellIsTargeting() ) then
+                SpellTargetUnit(unit)
+            elseif ( CursorHasItem() ) then
+                DropItemOnUnit(unit)
+            else
+                TargetUnit(unit)
+            end
 		end
-	else
-			ToggleDropDownMenu(1, nil, SUI_Party2_DropDown, "cursor", 0, 0)
-		end
-	end
-	------------------
-	function Sui_Party2FrameDropDown_OnLoad()
-		UIDropDownMenu_Initialize(this, Sui_Party2FrameDropDown_Initialize, "MENU")
-	end
-	------------------
-	function Sui_Party2FrameDropDown_Initialize()
-		local dropdown
-		if ( UIDROPDOWNMENU_OPEN_MENU ) then
-			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
-		else
-			dropdown = this
-		end
-		UnitPopup_ShowMenu(dropdown, "PARTY", "party2")
 	end
 	-- Party3 Frame --
 	function Sui_Party3Frame_OnClick()
-	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
-		SpellStopTargeting()
-		return
-	end
-	local unit = "party3"
-	if ( arg1 == "LeftButton" ) then
-		if ( SpellIsTargeting() ) then
-			SpellTargetUnit(unit)
-		elseif ( CursorHasItem() ) then
-			DropItemOnUnit(unit)
-		else
-			TargetUnit(unit)
+        if ( SpellIsTargeting() and arg1 == "RightButton" ) then
+            SpellStopTargeting()
+            return
+        end
+        local unit = "party3"
+        if ( arg1 == "LeftButton" ) then
+            if ( SpellIsTargeting() ) then
+                SpellTargetUnit(unit)
+            elseif ( CursorHasItem() ) then
+                DropItemOnUnit(unit)
+            else
+                TargetUnit(unit)
+            end
 		end
-	else
-			ToggleDropDownMenu(1, nil, SUI_Party3_DropDown, "cursor", 0, 0)
-		end
-	end
-	------------------
-	function Sui_Party3FrameDropDown_OnLoad()
-		UIDropDownMenu_Initialize(this, Sui_Party3FrameDropDown_Initialize, "MENU")
-	end
-	------------------
-	function Sui_Party3FrameDropDown_Initialize()
-		local dropdown
-		if ( UIDROPDOWNMENU_OPEN_MENU ) then
-			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
-		else
-			dropdown = this
-		end
-		UnitPopup_ShowMenu(dropdown, "PARTY", "party3")
 	end
 	-- Party4 Frame --
 	function Sui_Party4Frame_OnClick()
-	if ( SpellIsTargeting() and arg1 == "RightButton" ) then
-		SpellStopTargeting()
-		return
-	end
-	local unit = "party4"
-	if ( arg1 == "LeftButton" ) then
-		if ( SpellIsTargeting() ) then
-			SpellTargetUnit(unit)
-		elseif ( CursorHasItem() ) then
-			DropItemOnUnit(unit)
-		else
-			TargetUnit(unit)
+        if ( SpellIsTargeting() and arg1 == "RightButton" ) then
+            SpellStopTargeting()
+            return
+        end
+        local unit = "party4"
+        if ( arg1 == "LeftButton" ) then
+            if ( SpellIsTargeting() ) then
+                SpellTargetUnit(unit)
+            elseif ( CursorHasItem() ) then
+                DropItemOnUnit(unit)
+            else
+                TargetUnit(unit)
+            end
 		end
-	else
-			ToggleDropDownMenu(1, nil, SUI_Party4_DropDown, "cursor", 0, 0)
-		end
-	end
-	------------------
-	function Sui_Party4FrameDropDown_OnLoad()
-		UIDropDownMenu_Initialize(this, Sui_Party4FrameDropDown_Initialize, "MENU")
-	end
-	------------------
-	function Sui_Party4FrameDropDown_Initialize()
-		local dropdown
-		if ( UIDROPDOWNMENU_OPEN_MENU ) then
-			dropdown = getglobal(UIDROPDOWNMENU_OPEN_MENU)
-		else
-			dropdown = this
-		end
-		UnitPopup_ShowMenu(dropdown, "PARTY", "party4")
 	end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Displays unit frame tooltips.						    |--
@@ -2683,6 +2632,9 @@ function Sui_BuffCreateFrames()
 		end
 		i = i + 1
 	end
+    if suiData.playerbuffToggle == "off" then
+        SUI_Self_Buffs:Hide()
+    end
 end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Scans the unit for buffs and debuffs, then adds it to a database	    |--

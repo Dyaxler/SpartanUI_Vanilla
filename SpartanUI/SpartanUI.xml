@@ -1756,7 +1756,6 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_Party1FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
@@ -2301,7 +2300,6 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_Party2FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
@@ -2846,7 +2844,6 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_Party3FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
@@ -3391,7 +3388,6 @@
 					</Layers>
 					<Scripts>
 						<OnLoad>
-							Sui_Party4FrameDropDown_OnLoad();
 						</OnLoad>
 					</Scripts>
 				</Frame>
