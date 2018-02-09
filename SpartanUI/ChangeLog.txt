@@ -2,6 +2,7 @@
 
 v0.9.6.3:
 * Certain addons were causing some nil errors in player, party, target, target of target buff tooltips.
+* Some crafting addons have trouble hooking character portraits after an update is detected. While the crafting window is open, portrait updates are skipped.
 
 -------------------------------------------------------------------------------------------------------------------------------
 
