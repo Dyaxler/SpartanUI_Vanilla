@@ -1,5 +1,10 @@
 -------------------------------------------------------------------------------------------------------------------------------
 
+v0.9.6.3:
+* Certain addons were causing some nil errors in player, party, target, target of target buff tooltips.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
 v0.9.6.2:
 * Fixed an issue with the left and right back drops not staying hidden after a relog or reloadui
 * Added support for 2K Ultra Wide Monitors (3440 x 1440)

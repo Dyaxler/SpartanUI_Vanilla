@@ -8,7 +8,7 @@ function Sui_OnLoad()
 	SlashCmdList["SUI"] = Sui_SlashCommand
 	SLASH_SUI1 = "/sui"
 	SLASH_SUI2 = "/spartanui"
-	SUI_currentVersion = 0.9
+	SUI_currentVersion = 0.9.6.3
 	SUI_devmode = true
 	Sui_RegisterEvents()
 end
@@ -2967,52 +2967,51 @@ end
 --|		appropriate buff info accordingly.					    |--
 -----------------------------------------------------------------------------------------------
 function Sui_BuffTooltip_Enter()
-	-- Produces the list of frames
-	local frame = EnumerateFrames()
-	-- if it finds a frame that's visible and under the mouse...
+	local frame = EnumerateFrames(this:GetParent())    
+    local suiFrame
 	while frame do
-		if frame:IsVisible() and MouseIsOver(frame) then
-			local frame_string = frame:GetName()
-			local start, finish
-			-- ...then scan it for our keyphrases
-			if type(frame_string)=="string" then
-				start, finish = string.find(frame_string, "_Buff_", 1, true)
-				if not start then
-					start, finish = string.find(frame_string, "_Debuff_", 1, true)
-					if not start then
-						start, finish = string.find(frame_string, "_Weapon_", 1, true)
-					end
-				end
-			end
-			-- if a match is found, setup tooltip and show
-			if start then
-				local father = getglobal(frame_string)
-				local castable = father.castable
-				local index = father.index
-				local state = father.state
-				local direction = father.direction
-				local toon = father.toon
-				GameTooltip:SetOwner(father, direction)
-				if toon=="player" then
-					if state=="Weapon" then
-						GameTooltip:SetInventoryItem("player", index)
-					else
-						GameTooltip:SetPlayerBuff(index)
-					end
-				else
-					if state=="Buff" then
-						GameTooltip:SetUnitBuff(toon, index)
-					elseif state=="Debuff" then
-						GameTooltip:SetUnitDebuff(toon, index)
-					end
-				end
-				GameTooltip:Show()
-				-- and toggle for repeat updates of tooltips
-				suiData.tooltipUpdate = true
-			end
-		end
-		-- returns frame which follows current frame
-		frame = EnumerateFrames(frame)
+        suiFrame = frame:GetName() or "NoName"
+        if suiFrame == "NoName" or not string.find(suiFrame, "SUI.*") then return end
+        if suiFrame then
+            if frame:IsVisible() and MouseIsOver(frame) then
+                local frame_string = frame:GetName()
+                local start, finish
+                if type(frame_string)=="string" then
+                    start, finish = string.find(frame_string, "_Buff_", 1, true)
+                    if not start then
+                        start, finish = string.find(frame_string, "_Debuff_", 1, true)
+                        if not start then
+                            start, finish = string.find(frame_string, "_Weapon_", 1, true)
+                        end
+                    end
+                end
+                if start then
+                    local father = getglobal(frame_string)
+                    local castable = father.castable
+                    local index = father.index
+                    local state = father.state
+                    local direction = father.direction
+                    local toon = father.toon
+                    GameTooltip:SetOwner(father, direction)
+                    if toon=="player" then
+                        if state=="Weapon" then
+                            GameTooltip:SetInventoryItem("player", index)
+                        else
+                            GameTooltip:SetPlayerBuff(index)
+                        end
+                    else
+                        if state=="Buff" then
+                            GameTooltip:SetUnitBuff(toon, index)
+                        elseif state=="Debuff" then
+                            GameTooltip:SetUnitDebuff(toon, index)
+                        end
+                    end
+                    GameTooltip:Show()
+                    suiData.tooltipUpdate = true
+                end
+            end
+        end
+        frame = EnumerateFrames(frame)
 	end
 end
 -----------------------------------------------------------------------------------------------
@@ -3026,30 +3025,35 @@ end
 --|  Purpose:	Handles canceling the buff in question.					    |--
 -----------------------------------------------------------------------------------------------
 function Sui_BuffTooltip_Click()
-	local frame = EnumerateFrames()
+	local frame = EnumerateFrames(this:GetParent())    
+    local suiFrame
 	while frame do
-		if frame:IsVisible() and MouseIsOver(frame) then
-			local frame_string = frame:GetName()
-			local start, finish = string.find(frame_string, "_Buff_", 1, true)
-			if start then
-				local father = getglobal(frame_string)
-				if father.toon == "player" then
-					CancelPlayerBuff(father.index)
-				end
-			else
-			start, finish = string.find(frame_string, "_Weapon_", 1, true)
-				if start then
-				local father = getglobal(frame_string)
-					if father.index == 16 then
-						--CancelItemTempEnchantment(1)
-					elseif father.index == 17 then
-						--CancelItemTempEnchantment(1)
-					end
-				end
-			end
-		end
-	frame = EnumerateFrames(frame)
-	end
+        suiFrame = frame:GetName() or "NoName"
+        if suiFrame == "NoName" or not string.find(suiFrame, "SUI.*") then return end
+        if suiFrame then
+            if frame:IsVisible() and MouseIsOver(frame) then
+                local frame_string = frame:GetName()
+                local start, finish = string.find(frame_string, "_Buff_", 1, true)
+                if start then
+                    local father = getglobal(frame_string)
+                    if father.toon == "player" then
+                        CancelPlayerBuff(father.index)
+                    end
+                else
+                start, finish = string.find(frame_string, "_Weapon_", 1, true)
+                    if start then
+                    local father = getglobal(frame_string)
+                        if father.index == 16 then
+                            --CancelItemTempEnchantment(1)
+                        elseif father.index == 17 then
+                            --CancelItemTempEnchantment(1)
+                        end
+                    end
+                end
+            end
+        frame = EnumerateFrames(frame)
+        end
+    end
 end
 -----------------------------------------------------------------------------------------------
 --|  Purpose:	Notifies unit frames when a party member disconnects but remains in party.  |--
