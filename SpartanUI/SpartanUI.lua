@@ -8,7 +8,7 @@ function Sui_OnLoad()
 	SlashCmdList["SUI"] = Sui_SlashCommand
 	SLASH_SUI1 = "/sui"
 	SLASH_SUI2 = "/spartanui"
-	SUI_currentVersion = 0.9.6.3
+	SUI_currentVersion = 0.9
 	SUI_devmode = true
 	Sui_RegisterEvents()
 end
