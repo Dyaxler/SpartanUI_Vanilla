@@ -115,7 +115,9 @@ function Adapt.newSetPortraitTexture(texture,unit)
 	end
 
 	if not swapHappened then
-        if CraftFrame:IsVisible() then return end
+        if CraftFrame then
+            if CraftFrame:IsVisible() then return end
+        end
 		Adapt.oldSetPortraitTexture(texture,unit)
 		texture:Show()
 		if textureName and Adapt.Textures[textureName] then
