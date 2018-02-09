@@ -3908,7 +3908,7 @@ function Sui_OnUpdate(arg1)
 				local realScale = (UIParent:GetEffectiveScale())*(suiData.scale)
 				SUI_MouseTooltip:SetPoint("BOTTOMLEFT", "UIParent", "BOTTOMLEFT", x/realScale-6, y/realScale+20)
 			end
-			if (UnitInRaid("raid1")) and ReadyCheckFrame:IsVisible() == 1 then
+			if (UnitInRaid("raid")) and ReadyCheckFrame:IsVisible() == 1 then
 				if MouseIsOver(ReadyCheckFrameYesButton) == 1 then
 					Sui_Unit_UpdateReadyCheck_Subtask(1, 1, "yes")
 					if suiData.broadcastToggle == "on" then
